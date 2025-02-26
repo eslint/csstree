@@ -7,7 +7,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "csstree/csstree",
+  "repository": "eslint/csstree",
   "keywords": [
     "css",
     "ast",
