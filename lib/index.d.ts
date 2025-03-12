@@ -1,5 +1,5 @@
 /**
- * @fileoverview Type definitions for css-tree
+ * @fileoverview Type definitions for @eslint/css-tree
  * @author ScriptHunter7
  * @license MIT
  * Based on https://github.com/scripthunter7/DefinitelyTyped/blob/master/types/css-tree/index.d.ts
