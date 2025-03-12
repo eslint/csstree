@@ -26,6 +26,19 @@
     - `getBlockTokenPairIndex(tokenIndex)` – returns the index of the pair token for a block, or `-1` if no pair exists
 - Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
 
+## [3.2.0](https://github.com/eslint/csstree/compare/css-tree-v3.1.0...css-tree-v3.2.0) (2025-03-12)
+
+
+### Features
+
+* Add type definitions ([#4](https://github.com/eslint/csstree/issues/4)) ([e407bae](https://github.com/eslint/csstree/commit/e407bae294cdec1f987fac94b75b7ca7f749c229))
+* Rename to @eslint/css-tree ([#1](https://github.com/eslint/csstree/issues/1)) ([6f20a43](https://github.com/eslint/csstree/commit/6f20a4328e323cc0d40dd9407908171a54fac0c0))
+
+
+### Bug Fixes
+
+* Update CSS syntax ([#8](https://github.com/eslint/csstree/issues/8)) ([ff07c1e](https://github.com/eslint/csstree/commit/ff07c1e8ce1989f1c94cbb9ae44e3c8feee1de9e))
+
 ## 3.1.0 (December 6, 2024)
 
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
