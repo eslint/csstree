@@ -1,4 +1,4 @@
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 // Basic parsing and generating
 const ast = csstree.parse('.example { color: red }');
