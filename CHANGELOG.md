@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/eslint/csstree/compare/css-tree-v3.2.0...css-tree-v3.2.1) (2025-03-13)
+
+
+### Bug Fixes
+
+* Add types for onToken callback ([#9](https://github.com/eslint/csstree/issues/9)) ([b403ffb](https://github.com/eslint/csstree/commit/b403ffb6085d5e8c481f62026d88eebd632a3cb5))
+
 ## [3.2.0](https://github.com/eslint/csstree/compare/css-tree-v3.1.0...css-tree-v3.2.0) (2025-03-12)
 
 
