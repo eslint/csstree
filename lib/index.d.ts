@@ -648,6 +648,37 @@ export interface Dimension extends CssNodeCommon {
     unit: string;
 }
 
+export interface Feature extends CssNodeCommon {
+    type: "Feature";
+    name: string;
+    kind: string;
+    value: Identifier | NumberNode | Dimension | Ratio | FunctionNode | null;
+}
+
+export interface FeatureFunction extends CssNodeCommon {
+    type: "FeatureFunction";
+    feature: string;
+    kind: string;
+    value: Declaration | Selector;
+}
+
+export interface FeatureFunctionPlain extends CssNodeCommon {
+    type: "FeatureFunction";
+    feature: string;
+    kind: string;
+    value: DeclarationPlain | SelectorPlain;
+}
+
+export interface FeatureRange extends CssNodeCommon {
+    type: "FeatureRange";
+    kind: string;
+    left: Identifier | NumberNode | Dimension | Ratio | FunctionNode;
+    leftComparison: string;
+    middle: Identifier | NumberNode | Dimension | Ratio | FunctionNode;
+    rightComparison: string | null;
+    right: Identifier | NumberNode | Dimension | Ratio | FunctionNode | null;
+}
+
 export interface FunctionNode extends CssNodeCommon {
     type: "Function";
     name: string;
@@ -891,6 +922,9 @@ export type CssNode =
     | Declaration
     | DeclarationList
     | Dimension
+    | Feature
+    | FeatureFunction
+    | FeatureRange
     | FunctionNode
     | Hash
     | IdSelector
@@ -939,6 +973,9 @@ export type CssNodePlain =
     | DeclarationPlain
     | DeclarationListPlain
     | Dimension
+    | Feature
+    | FeatureFunctionPlain
+    | FeatureRange
     | FunctionNodePlain
     | Hash
     | IdSelector
@@ -987,10 +1024,15 @@ type CssNodeNames =
     | "Declaration"
     | "DeclarationList"
     | "Dimension"
+    | "Feature"
+    | "FeatureFunction"
+    | "FeatureRange"
     | "Function"
     | "Hash"
     | "IdSelector"
     | "Identifier"
+    | "Layer"
+    | "LayerList"
     | "MediaFeature"
     | "MediaQuery"
     | "MediaQueryList"
