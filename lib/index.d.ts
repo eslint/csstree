@@ -606,6 +606,18 @@ export interface Comment extends CssNodeCommon {
     value: string;
 }
 
+export interface Condition extends CssNodeCommon {
+    type: "Condition";
+    kind: string;
+    children: List<CssNode>;
+}
+
+export interface ConditionPlain extends CssNodeCommon {
+    type: "Condition";
+    kind: string;
+    children: CssNodePlain[];
+}
+
 export interface Declaration extends CssNodeCommon {
     type: "Declaration";
     important: boolean | string;
@@ -855,6 +867,7 @@ export type CssNode =
     | ClassSelector
     | Combinator
     | Comment
+    | Condition
     | Declaration
     | DeclarationList
     | Dimension
@@ -899,6 +912,7 @@ export type CssNodePlain =
     | ClassSelector
     | Combinator
     | Comment
+    | ConditionPlain
     | DeclarationPlain
     | DeclarationListPlain
     | Dimension
@@ -943,6 +957,7 @@ type CssNodeNames =
     | "ClassSelector"
     | "Combinator"
     | "Comment"
+    | "Condition"
     | "Declaration"
     | "DeclarationList"
     | "Dimension"
