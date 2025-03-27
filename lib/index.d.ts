@@ -842,6 +842,7 @@ export interface WhiteSpace extends CssNodeCommon {
     value: string;
 }
 
+/* IMPORTANT! If you update this, also update `CssNodePlain` and `CssNodeNames` */
 export type CssNode =
     | AnPlusB
     | Atrule
@@ -885,6 +886,7 @@ export type CssNode =
     | Value
     | WhiteSpace;
 
+/* IMPORTANT! If you update this, also update `CssNode` and `CssNodeNames` */
 export type CssNodePlain =
     | AnPlusB
     | AtrulePlain
@@ -907,6 +909,7 @@ export type CssNodePlain =
     | MediaFeature
     | MediaQueryPlain
     | MediaQueryListPlain
+    | NestingSelector
     | NthPlain
     | NumberNode
     | Operator
@@ -927,6 +930,7 @@ export type CssNodePlain =
     | ValuePlain
     | WhiteSpace;
 
+/* IMPORTANT! If you update this, also update `CssNodePlain` and `CssNode` */
 type CssNodeNames =
     | "AnPlusB"
     | "Atrule"
