@@ -675,6 +675,21 @@ export interface Identifier extends CssNodeCommon {
     name: string;
 }
 
+export interface Layer extends CssNodeCommon {
+    type: "Layer";
+    name: string;
+}
+
+export interface LayerList extends CssNodeCommon {
+    type: "LayerList";
+    children: List<Layer>;
+}
+
+export interface LayerListPlain extends CssNodeCommon {
+    type: "LayerList";
+    children: Layer[];
+}
+
 export interface MediaFeature extends CssNodeCommon {
     type: "MediaFeature";
     name: string;
@@ -819,6 +834,11 @@ export interface StyleSheet extends CssNodeCommon {
     children: List<CssNode>;
 }
 
+export interface SupportsDeclaration extends CssNodeCommon {
+    type: "SupportsDeclaration";
+    declaration: Declaration | Raw;
+}
+
 export interface StyleSheetPlain extends CssNodeCommon {
     type: "StyleSheet";
     children: CssNodePlain[];
@@ -875,6 +895,8 @@ export type CssNode =
     | Hash
     | IdSelector
     | Identifier
+    | Layer
+    | LayerList
     | MediaFeature
     | MediaQuery
     | MediaQueryList
@@ -893,6 +915,7 @@ export type CssNode =
     | SelectorList
     | StringNode
     | StyleSheet
+    | SupportsDeclaration
     | TypeSelector
     | UnicodeRange
     | Url
@@ -920,6 +943,8 @@ export type CssNodePlain =
     | Hash
     | IdSelector
     | Identifier
+    | Layer
+    | LayerListPlain
     | MediaFeature
     | MediaQueryPlain
     | MediaQueryListPlain
@@ -938,6 +963,7 @@ export type CssNodePlain =
     | SelectorListPlain
     | StringNode
     | StyleSheetPlain
+    | SupportsDeclaration
     | TypeSelector
     | UnicodeRange
     | Url
@@ -983,6 +1009,7 @@ type CssNodeNames =
     | "SelectorList"
     | "String"
     | "StyleSheet"
+    | "SupportsDeclaration"
     | "TypeSelector"
     | "UnicodeRange"
     | "Url"
