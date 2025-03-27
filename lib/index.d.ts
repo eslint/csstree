@@ -3121,7 +3121,7 @@ export class Lexer {
      * @param prelude - The prelude content.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchAtrulePrelude(atruleName: string, prelude: CssNode | string): LexerMatchResult;
+    matchAtrulePrelude(atruleName: string, prelude: CssNode | CssNodePlain | string): LexerMatchResult;
 
     /**
      * Matches an at-rule descriptor value against its syntax definition.
@@ -3131,7 +3131,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchAtruleDescriptor(atruleName: string, descriptorName: string, value: CssNode | string): LexerMatchResult;
+    matchAtruleDescriptor(atruleName: string, descriptorName: string, value: CssNode | CssNodePlain | string): LexerMatchResult;
 
     /**
      * Matches a declaration node against its syntax definition.
@@ -3139,7 +3139,7 @@ export class Lexer {
      * @param node - The declaration node to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchDeclaration(node: CssNode): LexerMatchResult;
+    matchDeclaration(node: CssNode | CssNodePlain): LexerMatchResult;
 
     /**
      * Matches a property value against its syntax definition.
@@ -3148,7 +3148,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchProperty(propertyName: string, value: CssNode | string): LexerMatchResult;
+    matchProperty(propertyName: string, value: CssNode | CssNodePlain | string): LexerMatchResult;
 
     /**
      * Matches a type value against its syntax definition.
@@ -3157,7 +3157,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchType(typeName: string, value: CssNode | string): LexerMatchResult;
+    matchType(typeName: string, value: CssNode | CssNodePlain | string): LexerMatchResult;
 
     /**
      * Matches a generic syntax descriptor against a value.
@@ -3166,7 +3166,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    match(syntax: SyntaxDescriptor | string, value: CssNode | string): LexerMatchResult;
+    match(syntax: SyntaxDescriptor | string, value: CssNode | CssNodePlain | string): LexerMatchResult;
 
     /**
      * Finds fragments of a value that match a specific syntax type and name.
@@ -3177,7 +3177,7 @@ export class Lexer {
      * @param name - The name to match.
      * @returns An array of matching fragments.
      */
-    findValueFragments(propertyName: string, value: CssNode, type: string, name: string): FragmentMatch<Value>[];
+    findValueFragments(propertyName: string, value: CssNode | CssNodePlain, type: string, name: string): FragmentMatch<Value>[];
 
     /**
      * Finds fragments of a declaration value that match a specific syntax type and name.
@@ -3197,7 +3197,7 @@ export class Lexer {
      * @param name - The name to match.
      * @returns An array of matching fragments.
      */
-    findAllFragments(ast: CssNode, type: string, name: string): FragmentMatch[];
+    findAllFragments(ast: CssNode | CssNodePlain, type: string, name: string): FragmentMatch[];
 
     /**
      * Retrieves the syntax descriptor for an at-rule.
