@@ -905,7 +905,7 @@ export interface WhiteSpace extends CssNodeCommon {
     value: string;
 }
 
-/* IMPORTANT! If you update this, also update `CssNodePlain` and `CssNodeNames` */
+/* IMPORTANT! If you update this, also update `CssNodePlain` */
 export type CssNode =
     | AnPlusB
     | Atrule
@@ -956,7 +956,7 @@ export type CssNode =
     | Value
     | WhiteSpace;
 
-/* IMPORTANT! If you update this, also update `CssNode` and `CssNodeNames` */
+/* IMPORTANT! If you update this, also update `CssNode` */
 export type CssNodePlain =
     | AnPlusB
     | AtrulePlain
@@ -1007,56 +1007,9 @@ export type CssNodePlain =
     | ValuePlain
     | WhiteSpace;
 
-/* IMPORTANT! If you update this, also update `CssNodePlain` and `CssNode` */
-type CssNodeNames =
-    | "AnPlusB"
-    | "Atrule"
-    | "AtrulePrelude"
-    | "AttributeSelector"
-    | "Block"
-    | "Brackets"
-    | "CDC"
-    | "CDO"
-    | "ClassSelector"
-    | "Combinator"
-    | "Comment"
-    | "Condition"
-    | "Declaration"
-    | "DeclarationList"
-    | "Dimension"
-    | "Feature"
-    | "FeatureFunction"
-    | "FeatureRange"
-    | "Function"
-    | "Hash"
-    | "IdSelector"
-    | "Identifier"
-    | "Layer"
-    | "LayerList"
-    | "MediaFeature"
-    | "MediaQuery"
-    | "MediaQueryList"
-    | "NestingSelector"
-    | "Nth"
-    | "Number"
-    | "Operator"
-    | "Parentheses"
-    | "Percentage"
-    | "PseudoClassSelector"
-    | "PseudoElementSelector"
-    | "Ratio"
-    | "Raw"
-    | "Rule"
-    | "Selector"
-    | "SelectorList"
-    | "String"
-    | "StyleSheet"
-    | "SupportsDeclaration"
-    | "TypeSelector"
-    | "UnicodeRange"
-    | "Url"
-    | "Value"
-    | "WhiteSpace";
+type CssNodeNames = CssNode["type"];
+
+type AnyCssNode = CssNode | CssNodePlain;
 
 // ----------------------------------------------------------
 // Tokenizer
@@ -1732,7 +1685,7 @@ export interface GenerateOptions {
  * @param options - Optional configuration for the generator.
  * @returns The generated CSS string.
  */
-export type GenerateFunction = (ast: CssNode, options?: GenerateOptions) => string;
+export type GenerateFunction = (ast: AnyCssNode, options?: GenerateOptions) => string;
 
 /**
  * Generates a CSS string from an abstract syntax tree (AST).
@@ -1764,7 +1717,7 @@ export interface WalkContext {
     /**
      * The root node of the tree being traversed.
      */
-    root: CssNode;
+    root: AnyCssNode;
 
     /**
      * The current stylesheet node being visited, or `null` if not applicable.
@@ -1872,48 +1825,7 @@ export interface WalkOptionsVisit<NodeType extends CssNode = CssNode> {
 /**
  * Combined options for tree-walking, supporting specific node types or general traversal options.
  */
-export type WalkOptions =
-    | WalkOptionsVisit<AnPlusB>
-    | WalkOptionsVisit<Atrule>
-    | WalkOptionsVisit<AtrulePrelude>
-    | WalkOptionsVisit<AttributeSelector>
-    | WalkOptionsVisit<Block>
-    | WalkOptionsVisit<Brackets>
-    | WalkOptionsVisit<CDC>
-    | WalkOptionsVisit<CDO>
-    | WalkOptionsVisit<ClassSelector>
-    | WalkOptionsVisit<Combinator>
-    | WalkOptionsVisit<Comment>
-    | WalkOptionsVisit<Declaration>
-    | WalkOptionsVisit<DeclarationList>
-    | WalkOptionsVisit<Dimension>
-    | WalkOptionsVisit<FunctionNode>
-    | WalkOptionsVisit<Hash>
-    | WalkOptionsVisit<IdSelector>
-    | WalkOptionsVisit<Identifier>
-    | WalkOptionsVisit<MediaFeature>
-    | WalkOptionsVisit<MediaQuery>
-    | WalkOptionsVisit<MediaQueryList>
-    | WalkOptionsVisit<Nth>
-    | WalkOptionsVisit<NumberNode>
-    | WalkOptionsVisit<Operator>
-    | WalkOptionsVisit<Parentheses>
-    | WalkOptionsVisit<Percentage>
-    | WalkOptionsVisit<PseudoClassSelector>
-    | WalkOptionsVisit<PseudoElementSelector>
-    | WalkOptionsVisit<Ratio>
-    | WalkOptionsVisit<Raw>
-    | WalkOptionsVisit<Rule>
-    | WalkOptionsVisit<Selector>
-    | WalkOptionsVisit<SelectorList>
-    | WalkOptionsVisit<StringNode>
-    | WalkOptionsVisit<StyleSheet>
-    | WalkOptionsVisit<TypeSelector>
-    | WalkOptionsVisit<UnicodeRange>
-    | WalkOptionsVisit<Url>
-    | WalkOptionsVisit<Value>
-    | WalkOptionsVisit<WhiteSpace>
-    | WalkOptionsNoVisit;
+export type WalkOptions = WalkOptionsVisit<CssNode> | WalkOptionsNoVisit;
 
 /**
  * Walks through a CSS abstract syntax tree (AST) and invokes callback functions on nodes.
@@ -1925,7 +1837,7 @@ export const walk: {
      * @param ast - The CSS abstract syntax tree to traverse.
      * @param options - The options controlling the traversal process.
      */
-    (ast: CssNode, options: EnterOrLeaveFn | WalkOptions): void;
+    (ast: AnyCssNode, options: EnterOrLeaveFn | WalkOptions): void;
 
     /**
      * Stops traversal. No visitor function will be invoked once this value is returned by a visitor.
@@ -1947,7 +1859,7 @@ export const walk: {
  * @param list - The list containing the current node.
  * @returns `true` if the node matches the condition; `false` otherwise.
  */
-export type FindFn = (this: WalkContext, node: CssNode, item: ListItem<CssNode>, list: List<CssNode>) => boolean;
+export type FindFn = (this: WalkContext, node: AnyCssNode, item: ListItem<CssNode>, list: List<CssNode>) => boolean;
 
 /**
  * Finds the first node in the tree that matches the specified predicate function.
@@ -1956,7 +1868,7 @@ export type FindFn = (this: WalkContext, node: CssNode, item: ListItem<CssNode>,
  * @param fn - The predicate function to match nodes.
  * @returns The first matching node, or `null` if no match is found.
  */
-export function find(ast: CssNode, fn: FindFn): CssNode | null;
+export function find(ast: AnyCssNode, fn: FindFn): AnyCssNode | null;
 
 /**
  * Finds the last node in the tree that matches the specified predicate function.
@@ -1965,7 +1877,7 @@ export function find(ast: CssNode, fn: FindFn): CssNode | null;
  * @param fn - The predicate function to match nodes.
  * @returns The last matching node, or `null` if no match is found.
  */
-export function findLast(ast: CssNode, fn: FindFn): CssNode | null;
+export function findLast(ast: AnyCssNode, fn: FindFn): AnyCssNode | null;
 
 /**
  * Finds all nodes in the tree that match the specified predicate function.
@@ -1974,7 +1886,7 @@ export function findLast(ast: CssNode, fn: FindFn): CssNode | null;
  * @param fn - The predicate function to match nodes.
  * @returns An array of all matching nodes.
  */
-export function findAll(ast: CssNode, fn: FindFn): CssNode[];
+export function findAll(ast: AnyCssNode, fn: FindFn): AnyCssNode[];
 
 // ----------------------------------------------------------
 // Name utils
@@ -3121,7 +3033,7 @@ export class Lexer {
      * @param prelude - The prelude content.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchAtrulePrelude(atruleName: string, prelude: CssNode | CssNodePlain | string): LexerMatchResult;
+    matchAtrulePrelude(atruleName: string, prelude: AnyCssNode | string): LexerMatchResult;
 
     /**
      * Matches an at-rule descriptor value against its syntax definition.
@@ -3131,7 +3043,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchAtruleDescriptor(atruleName: string, descriptorName: string, value: CssNode | CssNodePlain | string): LexerMatchResult;
+    matchAtruleDescriptor(atruleName: string, descriptorName: string, value: AnyCssNode | string): LexerMatchResult;
 
     /**
      * Matches a declaration node against its syntax definition.
@@ -3139,7 +3051,7 @@ export class Lexer {
      * @param node - The declaration node to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchDeclaration(node: CssNode | CssNodePlain): LexerMatchResult;
+    matchDeclaration(node: AnyCssNode): LexerMatchResult;
 
     /**
      * Matches a property value against its syntax definition.
@@ -3148,7 +3060,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchProperty(propertyName: string, value: CssNode | CssNodePlain | string): LexerMatchResult;
+    matchProperty(propertyName: string, value: AnyCssNode | string): LexerMatchResult;
 
     /**
      * Matches a type value against its syntax definition.
@@ -3157,7 +3069,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    matchType(typeName: string, value: CssNode | CssNodePlain | string): LexerMatchResult;
+    matchType(typeName: string, value: AnyCssNode | string): LexerMatchResult;
 
     /**
      * Matches a generic syntax descriptor against a value.
@@ -3166,7 +3078,7 @@ export class Lexer {
      * @param value - The value to match.
      * @returns The match result as a `LexerMatchResult`.
      */
-    match(syntax: SyntaxDescriptor | string, value: CssNode | CssNodePlain | string): LexerMatchResult;
+    match(syntax: SyntaxDescriptor | string, value: AnyCssNode | string): LexerMatchResult;
 
     /**
      * Finds fragments of a value that match a specific syntax type and name.
@@ -3177,7 +3089,7 @@ export class Lexer {
      * @param name - The name to match.
      * @returns An array of matching fragments.
      */
-    findValueFragments(propertyName: string, value: CssNode | CssNodePlain, type: string, name: string): FragmentMatch<Value>[];
+    findValueFragments(propertyName: string, value: AnyCssNode, type: string, name: string): FragmentMatch<Value>[];
 
     /**
      * Finds fragments of a declaration value that match a specific syntax type and name.
@@ -3197,7 +3109,7 @@ export class Lexer {
      * @param name - The name to match.
      * @returns An array of matching fragments.
      */
-    findAllFragments(ast: CssNode | CssNodePlain, type: string, name: string): FragmentMatch[];
+    findAllFragments(ast: AnyCssNode, type: string, name: string): FragmentMatch[];
 
     /**
      * Retrieves the syntax descriptor for an at-rule.
