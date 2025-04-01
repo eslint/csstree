@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.2](https://github.com/eslint/csstree/compare/css-tree-v3.3.1...css-tree-v3.3.2) (2025-03-29)
+
+
+### Bug Fixes
+
+* Add missing node types and update other types ([#18](https://github.com/eslint/csstree/issues/18)) ([37a6dd4](https://github.com/eslint/csstree/commit/37a6dd47ca30b626852f6cb61b5f7a4744da2e71))
+
 ## [3.3.1](https://github.com/eslint/csstree/compare/css-tree-v3.3.0...css-tree-v3.3.1) (2025-03-20)
 
 
