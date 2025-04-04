@@ -595,6 +595,10 @@
         "coord-box": {
             "syntax": "content-box | padding-box | border-box | fill-box | stroke-box | view-box"
         },
+        "cubic-bezier-easing-function": {
+            "comment": "missed, https://drafts.csswg.org/css-easing-1/#cubic-bezier-easing-function",
+            "syntax": "ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )"
+        },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
             "syntax": "element( <custom-ident> , [ first | start | last | first-except ]? ) | element( <id-selector> )"
