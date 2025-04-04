@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.3](https://github.com/eslint/csstree/compare/css-tree-v3.3.2...css-tree-v3.3.3) (2025-04-04)
+
+
+### Bug Fixes
+
+* Add patch for &lt;cubic-bezier-easing-function&gt; ([#28](https://github.com/eslint/csstree/issues/28)) ([c4d6c44](https://github.com/eslint/csstree/commit/c4d6c44931114edfbbacf1de8b26288d15cf9e48)), closes [#27](https://github.com/eslint/csstree/issues/27)
+* Remove `src` descriptor patch ([#23](https://github.com/eslint/csstree/issues/23)) ([e3d17f0](https://github.com/eslint/csstree/commit/e3d17f0fc4e1c29df8d80985fbc8a7f9d8c78e2b))
+* Remove `unicode-range` descriptor patch ([#25](https://github.com/eslint/csstree/issues/25)) ([2048240](https://github.com/eslint/csstree/commit/2048240bd3811a7fb4f7bbbc18c73e7064196e4e))
+* Remove outdated `@font-face/unicode-range` descriptor patch ([#26](https://github.com/eslint/csstree/issues/26)) ([1ea54f7](https://github.com/eslint/csstree/commit/1ea54f7f6c1477c5a9cbae3a233061c85e336f8f))
+* Remove wrong `scroll-timeline` property patch ([#22](https://github.com/eslint/csstree/issues/22)) ([b142b20](https://github.com/eslint/csstree/commit/b142b205c0d2d73c5ef27799a35ade92dc271ef7))
+* Remove wrong scroll-timeline property patch ([b142b20](https://github.com/eslint/csstree/commit/b142b205c0d2d73c5ef27799a35ade92dc271ef7))
+
 ## [3.3.2](https://github.com/eslint/csstree/compare/css-tree-v3.3.1...css-tree-v3.3.2) (2025-03-29)
 
 
