@@ -813,24 +813,6 @@
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
         },
-        "anchor()": {
-            "syntax": "anchor( <anchor-element>? && <anchor-side>, <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#anchor-pos"
-            ]
-        },
-        "anchor-size()": {
-            "syntax": "anchor-size( [ <anchor-element> || <anchor-size> ]? , <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#funcdef-anchor-size"
-            ]
-        },
-        "anchor-element": {
-            "syntax": "<dashed-ident>",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-anchor-element"
-        },
         "font-variant-css2": {
             "syntax": "normal | small-caps",
             "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-variant-css21-values"
