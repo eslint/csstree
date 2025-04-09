@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.3.4](https://github.com/eslint/csstree/compare/css-tree-v3.3.3...css-tree-v3.3.4) (2025-04-09)
+
+
+### Bug Fixes
+
+* Remove outdated `anchor()` & `anchor-size()` descriptor patch ([afd673a](https://github.com/eslint/csstree/commit/afd673ad211653084b3d44935c42b972b911de12))
+* Remove outdated `anchor()` & `anchor-size()` function patch ([#29](https://github.com/eslint/csstree/issues/29)) ([afd673a](https://github.com/eslint/csstree/commit/afd673ad211653084b3d44935c42b972b911de12))
+* Update mdn-data and patch ([#32](https://github.com/eslint/csstree/issues/32)) ([20b412f](https://github.com/eslint/csstree/commit/20b412f1692bd98dcadd732d62c4799882bced73))
+
 ## [3.3.3](https://github.com/eslint/csstree/compare/css-tree-v3.3.2...css-tree-v3.3.3) (2025-04-04)
 
 
