@@ -2704,7 +2704,7 @@ interface StructureDefinition {
 
 interface NodeSyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     name: string;
-    structure: StructureDefinition | [];
+    structure: StructureDefinition;
     parse(this: ParserContext): T;
     generate(this: ParserContext, node: T): void;
     walkContext?: string;
