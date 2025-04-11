@@ -97,9 +97,7 @@ const lexer = new csstree.Lexer({
     units: {},
     scope: {},
     features: {},
-    node: {
-        Identifier
-    },
+    node: {},
     atrule: {},
     pseudo: {},
     parseContext: {
@@ -228,6 +226,7 @@ const customSyntax = csstree.fork({
                 return `custom2: ${node.type}`;
             },
             walkContext: 'stylesheet'
+        }
     }
 });
 
