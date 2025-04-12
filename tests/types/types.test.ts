@@ -197,6 +197,36 @@ const customSyntax = csstree.fork({
     },
     properties: {
         custom: 'CustomNode'
+    },
+    node: {
+        CustomNode: {
+            name: 'CustomNode',
+            structure: {
+                value: 'String'
+            },
+            parse: () => {
+                return {
+                    type: 'CustomNode',
+                    value: 'hello'
+                };
+            },
+            generate: (node) => {
+                return `custom: ${node.type}`;
+            }
+        },
+        CustomNode2: {
+            name: 'CustomNode2',
+            structure: {},
+            parse: () => {
+                return {
+                    type: 'CustomNode2'
+                };
+            },
+            generate: (node) => {
+                return `custom2: ${node.type}`;
+            },
+            walkContext: 'stylesheet'
+        }
     }
 });
 

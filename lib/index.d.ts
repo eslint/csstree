@@ -2693,19 +2693,21 @@ type ParserContext = TokenStream
         [key: string]: unknown;
     };
 
-interface StructureDescriptor {
-    type: string;
-    optional?: boolean;
-    parse?: (this: ParserContext) => CssNodeCommon;
-    generate?: (this: ParserContext, node: CssNodeCommon) => void;
+type StructureValue = string | Function | null;
+type StructureDescriptor =  StructureValue | Array<StructureValue> | Array<Array<StructureValue>>;
+
+interface StructureDefinition {
+    children?: Array<string>;
+
+    [key: string]: StructureDescriptor | undefined;
 }
 
 interface NodeSyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     name: string;
-    structure: Record<string, StructureDescriptor>;
+    structure: StructureDefinition;
     parse(this: ParserContext): T;
     generate(this: ParserContext, node: T): void;
-    walkContext: WalkContext;
+    walkContext?: string;
 }
 
 interface AtruleSyntax {
