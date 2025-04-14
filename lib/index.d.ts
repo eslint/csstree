@@ -2738,6 +2738,7 @@ export interface SyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     scope: Record<string, Recognizer>;
     features: Record<string, Recognizer>;
     parseContext: ParseContext;
+    tokenize: TokenizeFunction;
 }
 
 interface LexerStructureWarning {
