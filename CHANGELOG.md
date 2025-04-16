@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.4.0](https://github.com/eslint/csstree/compare/css-tree-v3.3.4...css-tree-v3.4.0) (2025-04-16)
+
+
+### Features
+
+* Customize tokenize function via the fork API ([#36](https://github.com/eslint/csstree/issues/36)) ([e62301c](https://github.com/eslint/csstree/commit/e62301cdb67dc7813870712e7302c5d1e00af968))
+
+
+### Bug Fixes
+
+* Types for Node definitions ([#34](https://github.com/eslint/csstree/issues/34)) ([e553a25](https://github.com/eslint/csstree/commit/e553a25b9ea0562ef75b46583e9375ef307a8318))
+
 ## [3.3.4](https://github.com/eslint/csstree/compare/css-tree-v3.3.3...css-tree-v3.3.4) (2025-04-09)
 
 
