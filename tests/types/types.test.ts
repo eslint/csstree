@@ -102,7 +102,8 @@ const lexer = new csstree.Lexer({
     pseudo: {},
     parseContext: {
         default: 'stylesheet'
-    }
+    },
+    tokenize: csstree.tokenize,
 });
 
 // Property matching
