@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.0](https://github.com/eslint/csstree/compare/css-tree-v3.4.0...css-tree-v3.5.0) (2025-04-22)
+
+
+### Features
+
+* Add support for most CSS nesting rules ([#37](https://github.com/eslint/csstree/issues/37)) ([9d6b65f](https://github.com/eslint/csstree/commit/9d6b65fd1d6d975f188de27d41df83a82c4d7cc2))
+* Nested selector support ([9d6b65f](https://github.com/eslint/csstree/commit/9d6b65fd1d6d975f188de27d41df83a82c4d7cc2))
+
 ## [3.4.0](https://github.com/eslint/csstree/compare/css-tree-v3.3.4...css-tree-v3.4.0) (2025-04-16)
 
 
