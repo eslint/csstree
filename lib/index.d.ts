@@ -2697,7 +2697,7 @@ type StructureValue = string | Function | null;
 type StructureDescriptor =  StructureValue | Array<StructureValue> | Array<Array<StructureValue>>;
 
 interface StructureDefinition {
-    children?: Array<string>;
+    children?: Array<Array<string>>;
 
     [key: string]: StructureDescriptor | undefined;
 }
@@ -2712,7 +2712,7 @@ interface NodeSyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
 
 interface AtruleSyntax {
     prelude: string | null;
-    descriptors: Record<string, string> | null;
+    descriptors?: Record<string, string> | null;
 }
 
 // https://github.com/csstree/csstree/blob/9de5189fadd6fb4e3a149eec0e80d6ed0d0541e5/lib/syntax/config/parser.js#L7-L28
