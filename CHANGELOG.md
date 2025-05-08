@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.1](https://github.com/eslint/csstree/compare/css-tree-v3.5.0...css-tree-v3.5.1) (2025-05-08)
+
+
+### Bug Fixes
+
+* Add missing &lt;parenthesis-block&gt; type ([#42](https://github.com/eslint/csstree/issues/42)) ([1695a47](https://github.com/eslint/csstree/commit/1695a4743bd452438612ab04d7738dc703eb1263))
+* Types for NodeSyntaxConfig ([#41](https://github.com/eslint/csstree/issues/41)) ([d7dc09d](https://github.com/eslint/csstree/commit/d7dc09d3d2fda0e34e3573a2c009ee48da8c89ec))
+
 ## [3.5.0](https://github.com/eslint/csstree/compare/css-tree-v3.4.0...css-tree-v3.5.0) (2025-04-22)
 
 
