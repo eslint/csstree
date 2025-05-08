@@ -817,7 +817,7 @@
             "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#system-family-name-value"
         },
         "parentheses-block": {
-            "comment": "missed, https://drafts.csswg.org/css-syntax/#typedef-parentheses-block",
+            "comment": "missed in mdn-data",
             "syntax": "( <any-value>* )"
         }
     }
