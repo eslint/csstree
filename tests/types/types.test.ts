@@ -194,6 +194,9 @@ const customSyntax = csstree.fork({
                 custom: 'CustomNode'
             }
 
+        },
+        CustomAtRule2: {
+            prelude: 'CustomAtRule2'
         }
     },
     properties: {
@@ -227,6 +230,21 @@ const customSyntax = csstree.fork({
                 return `custom2: ${node.type}`;
             },
             walkContext: 'stylesheet'
+        },
+        CustomNode3: {
+            name: 'CustomNode3',
+            structure: {
+                children: [[]]
+            },
+            parse: () => {
+                return {
+                    type: 'CustomNode3',
+                    value: 'hello'
+                };
+            },
+            generate: (node) => {
+                return `custom3: ${node.type}`;
+            }
         }
     }
 });
