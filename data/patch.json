@@ -815,6 +815,10 @@
         "system-family-name": {
             "syntax": "caption | icon | menu | message-box | small-caption | status-bar",
             "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#system-family-name-value"
+        },
+        "parentheses-block": {
+            "comment": "missed in mdn-data",
+            "syntax": "( <any-value>* )"
         }
     }
 }
