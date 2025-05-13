@@ -67,7 +67,8 @@
     },
     "./definition-syntax-data": {
       "import": "./lib/data.js",
-      "require": "./cjs/data.cjs"
+      "require": "./cjs/data.cjs",
+      "types": "./lib/data.d.ts"
     },
     "./definition-syntax-data-patch": {
       "import": "./lib/data-patch.js",
