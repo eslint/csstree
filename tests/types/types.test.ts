@@ -1,4 +1,5 @@
 import * as csstree from '@eslint/css-tree';
+import defaultSyntax from '@eslint/css-tree/definition-syntax-data';
 
 // Basic parsing and generating
 const ast = csstree.parse('.example { color: red }');
@@ -197,11 +198,14 @@ const customSyntax = csstree.fork({
         },
         CustomAtRule2: {
             prelude: 'CustomAtRule2'
-        }
+        },
+        ...defaultSyntax.atrules
     },
     properties: {
-        custom: 'CustomNode'
+        custom: 'CustomNode',
+        ...defaultSyntax.properties
     },
+    types: defaultSyntax.types,
     node: {
         CustomNode: {
             name: 'CustomNode',
@@ -245,7 +249,7 @@ const customSyntax = csstree.fork({
             generate: (node) => {
                 return `custom3: ${node.type}`;
             }
-        }
+        },
     }
 });
 
@@ -261,4 +265,24 @@ customSyntax.walk(customAst,
 const x = (node: csstree.CssNode, nodePlain: csstree.CssNodePlain) => {
     node.type = nodePlain.type;
     nodePlain.type = node.type;
+};
+
+// parse with custom arguments
+const parse1: csstree.NodeSyntaxConfig["parse"] = function(a, b) {
+
+    return {
+        type: 'Function',
+        loc: this.getLocation(0, this.tokenStart),
+        name: 'Function',
+    };
+};
+
+// parse with no arguments
+const parse2: csstree.NodeSyntaxConfig["parse"] = function() {
+
+    return {
+        type: 'Function',
+        loc: this.getLocation(0, this.tokenStart),
+        name: 'Function',
+    };
 };

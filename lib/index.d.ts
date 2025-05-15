@@ -522,7 +522,7 @@ export class List<TData> {
 
 export interface CssNodeCommon {
     type: string;
-    loc?: CssLocationRange | undefined;
+    loc?: CssLocationRange | null;
 }
 
 export interface AnPlusB extends CssNodeCommon {
@@ -2705,7 +2705,7 @@ interface StructureDefinition {
 interface NodeSyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     name: string;
     structure: StructureDefinition;
-    parse(this: ParserContext): T;
+    parse(this: ParserContext, ...args:Array<unknown>): T;
     generate(this: ParserContext, node: T): void;
     walkContext?: string;
 }
