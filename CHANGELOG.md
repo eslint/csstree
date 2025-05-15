@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.2](https://github.com/eslint/csstree/compare/css-tree-v3.5.1...css-tree-v3.5.2) (2025-05-15)
+
+
+### Bug Fixes
+
+* Types for default-syntax-data and nodes ([#44](https://github.com/eslint/csstree/issues/44)) ([2edbf80](https://github.com/eslint/csstree/commit/2edbf80347b08999197e2dc696aebf1bdcf61b8c))
+
 ## [3.5.1](https://github.com/eslint/csstree/compare/css-tree-v3.5.0...css-tree-v3.5.1) (2025-05-08)
 
 
