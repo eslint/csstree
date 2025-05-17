@@ -10,6 +10,7 @@ jobs:
             contents: write
             pull-requests: write
             id-token: write
+            models: read
         steps:
             - uses: googleapis/release-please-action@v4
               id: release
@@ -30,8 +31,14 @@ jobs:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
               if: ${{ steps.release.outputs.release_created }}
 
+            # Generates the social media post
+            - run: npx @humanwhocodes/social-changelog --org ${{ github.repository_owner }} --repo ${{ github.event.repository.name }} --name 'eslint/css-tree' --tag ${{ steps.release.outputs.tag_name }} > social-post.txt
+              if: ${{ steps.release.outputs.release_created }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
             - name: Post release announcement
-              run: 'npx @humanwhocodes/crosspost -t -m -b "eslint/css-tree v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }} has been released:\n\n${{ steps.release.outputs.html_url }}"'
+              run: npx @humanwhocodes/crosspost -t -b -m --discord-webhook --file social-post.txt
               if: ${{ steps.release.outputs.release_created }}
               env:
                   TWITTER_API_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
@@ -43,3 +50,4 @@ jobs:
                   BLUESKY_IDENTIFIER: ${{ vars.BLUESKY_IDENTIFIER }}
                   BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
                   BLUESKY_HOST: ${{ vars.BLUESKY_HOST }}
+                  DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
