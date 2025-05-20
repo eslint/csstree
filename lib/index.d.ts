@@ -2430,6 +2430,17 @@ interface Recognizer {
      */
     getNode(context: ParserContext): (this: ParserContext) => CssNode;
 
+    /**
+     * Any additional methods that return a node or list when called.
+     *
+     * @param context - The parsing context.
+     * @returns A function that produces either a CssNode or List<CssNode>.
+     */
+    [methodName: string]:
+        ((context: ParserContext) => ((this: ParserContext) => CssNode | List<CssNode>)) |
+        ((this: ParserContext, ...args: unknown[]) => CssNode | List<CssNode>) |
+        undefined;
+
     // /**
     //  * Handles whitespace between CSS selectors during parsing.
     //  * Ensures that whitespace is correctly interpreted as a descendant combinator.
@@ -2732,11 +2743,11 @@ export interface SyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     types: Record<string, string>;
     properties: Record<string, string>;
     atrules: Record<string, AtruleSyntax>;
-    node: Record<string, NodeSyntaxConfig<T>>;
+    node: Record<string, Partial<NodeSyntaxConfig<T>>>;
     atrule: Record<string, { parse: ConsumerFunction; }>;
     pseudo: Record<string, { parse: ConsumerFunction; }>;
-    scope: Record<string, Recognizer>;
-    features: Record<string, Recognizer>;
+    scope: Record<string, Partial<Recognizer>>;
+    features: Record<string, Partial<Recognizer>>;
     parseContext: ParseContext;
     tokenize: TokenizeFunction;
 }
