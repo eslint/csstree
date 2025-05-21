@@ -261,7 +261,7 @@ const customSyntax = csstree.fork({
     },
     scope: {
         Value: {
-            custom(readSequence, recognizer) {
+            custom() {
                 return this.createList();
             }
         }
