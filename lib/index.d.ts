@@ -2478,9 +2478,6 @@ interface Parser {
 
     /**
      * Reads a sequence of CSS nodes based on the provided recognizer.
-     *
-     * @param recognizer - A recognizer instance to determine node boundaries.
-     * @returns A list of parsed `CssNode` objects.
      */
     readSequence: ReadSequenceFunction;
 
