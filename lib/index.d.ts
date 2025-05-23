@@ -1608,6 +1608,14 @@ export interface ParseFunction {
  */
 export const parse: ParseFunction;
 
+/**
+ * Represents a function that reads a sequence of CSS tokens and returns a list of nodes.
+ *
+ * @param recognizer - A recognizer instance to determine node boundaries.
+ * @returns A list of parsed nodes.
+ */
+export type ReadSequenceFunction = (this: ParserContext, recognizer: Recognizer) => List<CssNode>;
+
 // ----------------------------------------------------------
 // Generator
 // https://github.com/csstree/csstree/tree/master/lib/generator
@@ -2415,12 +2423,11 @@ export interface LexerMatchResult {
 
 type ConsumerFunction = (this: ParserContext, ...args: unknown[]) => CssNode;
 
-// https://github.com/csstree/csstree/tree/master/lib/syntax/scope
 /**
  * Recognizer is responsible for identifying specific patterns or constructs within the CSS syntax.
  * It provides methods to interpret and handle these constructs during parsing.
+ * @see https://github.com/csstree/csstree/blob/master/lib/syntax/scope
  */
-// FIXME
 interface Recognizer {
     /**
      * Retrieves a node based on the provided parsing context.
@@ -2428,16 +2435,19 @@ interface Recognizer {
      * @param context - The parsing context, which contains relevant state and configuration for the parser.
      * @returns A function that, when executed, produces a `CssNode`.
      */
-    getNode(context: ParserContext): (this: ParserContext) => CssNode;
+    getNode(this: ParserContext): CssNode;
 
-    // /**
-    //  * Handles whitespace between CSS selectors during parsing.
-    //  * Ensures that whitespace is correctly interpreted as a descendant combinator.
-    //  *
-    //  * @param next - The next node or token in the parsing sequence.
-    //  * @param children - The list of parsed nodes, which will be modified to include a `Combinator` node if applicable.
-    //  */
-    // onWhiteSpace?(next: CssNode | null, children: CssNodeList): void;
+    /**
+     * Handles whitespace between CSS selectors during parsing.
+     * Ensures that whitespace is correctly interpreted as a descendant combinator.
+     *
+     * @param next - The next node or token in the parsing sequence.
+     * @param children - The list of parsed nodes, which will be modified to include a `Combinator` node if applicable.
+     */
+    onWhitespace?(this: ParserContext, next: CssNode | null, children: List<CssNode>): void;
+
+    // any number of other properties
+    [key:string]: any;
 }
 
 /**
@@ -2468,11 +2478,8 @@ interface Parser {
 
     /**
      * Reads a sequence of CSS nodes based on the provided recognizer.
-     *
-     * @param recognizer - A recognizer instance to determine node boundaries.
-     * @returns A list of parsed `CssNode` objects.
      */
-    readSequence(this: ParserContext, recognizer: Recognizer): List<CssNode>;
+    readSequence: ReadSequenceFunction;
 
     /**
      * Consumes input until the end of a balance context is reached.
@@ -2732,11 +2739,11 @@ export interface SyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     types: Record<string, string>;
     properties: Record<string, string>;
     atrules: Record<string, AtruleSyntax>;
-    node: Record<string, NodeSyntaxConfig<T>>;
+    node: Record<string, Partial<NodeSyntaxConfig<T>>>;
     atrule: Record<string, { parse: ConsumerFunction; }>;
     pseudo: Record<string, { parse: ConsumerFunction; }>;
-    scope: Record<string, Recognizer>;
-    features: Record<string, Recognizer>;
+    scope: Record<string, Partial<Recognizer>>;
+    features: Record<string, Partial<Recognizer>>;
     parseContext: ParseContext;
     tokenize: TokenizeFunction;
 }
