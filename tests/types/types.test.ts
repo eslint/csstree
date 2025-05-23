@@ -250,6 +250,21 @@ const customSyntax = csstree.fork({
                 return `custom3: ${node.type}`;
             }
         },
+        CustomNode4: {
+            parse: () => {
+                return {
+                    type: 'CustomNode3',
+                    value: 'hello'
+                };
+            },
+        },
+    },
+    scope: {
+        Value: {
+            custom() {
+                return this.createList();
+            }
+        }
     }
 });
 
