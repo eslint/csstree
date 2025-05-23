@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.3](https://github.com/eslint/csstree/compare/css-tree-v3.5.2...css-tree-v3.5.3) (2025-05-23)
+
+
+### Bug Fixes
+
+* Types for custom nodes and scopes ([#47](https://github.com/eslint/csstree/issues/47)) ([3a663e1](https://github.com/eslint/csstree/commit/3a663e1e94a65b1bc2da4b2cdb052700988efcc4))
+
 ## [3.5.2](https://github.com/eslint/csstree/compare/css-tree-v3.5.1...css-tree-v3.5.2) (2025-05-15)
 
 
