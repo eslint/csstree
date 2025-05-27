@@ -1284,7 +1284,7 @@ export class TokenStream {
     lookupOffset(offset: number): number;
 
     /**
-     * Skips whitespace and comments and returns the starting index (inclusive) of the `idx`-th non-whitespace/comment token in the `TokenStream`.
+     * Returns the starting index (inclusive) of the `idx`-th non-whitespace/comment token in the `TokenStream`. This method skips whitespace and comment tokens until it finds the specified non-whitespace/comment token.
      *
      * @param index - The index of the non-whitespace/comment token to look up (starting from 0).
      * @returns The starting index of the `idx`-th non-whitespace/comment token, or `EOF` if the index is out of bounds or if the end of the stream is reached before the specified token is found.
@@ -1715,8 +1715,7 @@ export interface WalkContext {
     break: symbol;
 
     /**
-     * Prevents the current node from being iterated. No visitor function will
-     * be invoked for its properties or children nodes. This value only affects
+     * Prevents the current node from being iterated. No visitor function will be invoked for its properties or children nodes. This value only affects
      * the `enter` visitor; the `leave` visitor is invoked after iterating
      * over all node's properties and children.
      */
@@ -2681,6 +2680,14 @@ interface Parser {
     error: (this: ParserContext, message: string, offset: number) => void;
 }
 
+// AtruleParseConfig type based on the structure of files in lib/syntax/atrule/
+interface AtruleParseConfig {
+    parse: {
+        prelude?: ((this: ParserContext) => List<CssNode>) | null;
+        block?: ((this: ParserContext, nested?: boolean) => CssNode) | null;
+    };
+}
+
 // https://github.com/csstree/csstree/blob/9de5189fadd6fb4e3a149eec0e80d6ed0d0541e5/lib/parser/create.js#L53-L80
 type ParseConfig = {
     context: Record<string, ConsumerFunction | undefined>;
@@ -2740,7 +2747,7 @@ export interface SyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     properties: Record<string, string>;
     atrules: Record<string, AtruleSyntax>;
     node: Record<string, Partial<NodeSyntaxConfig<T>>>;
-    atrule: Record<string, { parse: ConsumerFunction; }>;
+    atrule: Record<string, AtruleParseConfig>;
     pseudo: Record<string, { parse: ConsumerFunction; }>;
     scope: Record<string, Partial<Recognizer>>;
     features: Record<string, Partial<Recognizer>>;
