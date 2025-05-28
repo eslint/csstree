@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.4](https://github.com/eslint/csstree/compare/css-tree-v3.5.3...css-tree-v3.5.4) (2025-05-28)
+
+
+### Bug Fixes
+
+* Types for atrule parsing ([#49](https://github.com/eslint/csstree/issues/49)) ([7194e95](https://github.com/eslint/csstree/commit/7194e958521ffb43cd25ba82645a9ba0f3ec875b))
+
 ## [3.5.3](https://github.com/eslint/csstree/compare/css-tree-v3.5.2...css-tree-v3.5.3) (2025-05-23)
 
 
