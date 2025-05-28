@@ -188,6 +188,42 @@ const customSyntax = csstree.fork({
     parseContext: {
         default: 'stylesheet'
     },
+    atrule: {
+        CustomAtRule: {
+            parse: {
+                prelude: null,
+                block() {
+                    return {
+                        type: 'Block',
+                        children: new csstree.List<csstree.CssNode>()
+                    };
+                }
+            }
+        },
+        CustomAtRule2: {
+            parse: {
+                prelude() {
+                    return new csstree.List<csstree.CssNode>();
+                },
+                block: null
+            }
+        },
+        CustomAtRule3: {
+            parse: {
+                block() {
+                    return {
+                        type: 'Block',
+                        children: new csstree.List<csstree.CssNode>()
+                    };
+                }
+            }
+        },
+        CustomAtRule4: {
+            parse: {
+                prelude: null
+            }
+        }
+    },
     atrules: {
         CustomAtRule: {
             prelude: 'CustomAtRule',
