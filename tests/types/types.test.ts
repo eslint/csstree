@@ -313,6 +313,12 @@ customSyntax.walk(customAst,
     }
 );
 
+const readSequence: csstree.ReadSequenceFunction = function (recognizer) {
+    const sequence = this.createList();
+    this.isDelim(5);
+    return sequence;
+};
+
 const x = (node: csstree.CssNode, nodePlain: csstree.CssNodePlain) => {
     node.type = nodePlain.type;
     nodePlain.type = node.type;
