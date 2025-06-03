@@ -1331,7 +1331,7 @@ export class TokenStream {
      * @param offset - The offset from the current token's starting index (optional). If provided, the function checks the token at the specified offset instead of the current token.
      * @returns True if the token is a delimiter with the specified character code, false otherwise.
      */
-    isDelim(code: number, offset: number): boolean;
+    isDelim(code: number, offset?: number): boolean;
 
     /**
      * Skips a specified number of tokens forward in the stream.
