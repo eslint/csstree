@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.6.0](https://github.com/eslint/csstree/compare/css-tree-v3.5.4...css-tree-v3.6.0) (2025-06-05)
+
+
+### Features
+
+* Add support for math functions ([#53](https://github.com/eslint/csstree/issues/53)) ([b7c4915](https://github.com/eslint/csstree/commit/b7c491587de974630bcde75034e3cb55a2edbeca))
+* Parse nested element selector ([#51](https://github.com/eslint/csstree/issues/51)) ([ed3ae55](https://github.com/eslint/csstree/commit/ed3ae5503e0d92facaf8d0a81d60b2e35af6c891))
+
+
+### Bug Fixes
+
+* isDelim() type ([#55](https://github.com/eslint/csstree/issues/55)) ([9605092](https://github.com/eslint/csstree/commit/9605092a76cd7620ad49f1747d6086dd9021fd5a))
+* Update MDN data and patch ([#54](https://github.com/eslint/csstree/issues/54)) ([8a707a7](https://github.com/eslint/csstree/commit/8a707a7519ea50f64a68cd77bff1dac678e59326))
+
 ## [3.5.4](https://github.com/eslint/csstree/compare/css-tree-v3.5.3...css-tree-v3.5.4) (2025-05-28)
 
 
