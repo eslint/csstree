@@ -276,10 +276,13 @@ const customSyntax = csstree.fork({
             structure: {
                 children: [[]]
             },
-            parse: () => {
+            parse() {
+
+                const dec = this.Declaration();
+
                 return {
                     type: 'CustomNode3',
-                    value: 'hello'
+                    value: dec.property
                 };
             },
             generate: (node) => {
@@ -287,10 +290,13 @@ const customSyntax = csstree.fork({
             }
         },
         CustomNode4: {
-            parse: () => {
+            parse() {
+
+                const id = this.Identifier();
+
                 return {
                     type: 'CustomNode3',
-                    value: 'hello'
+                    value: id.name
                 };
             },
         },
@@ -303,6 +309,36 @@ const customSyntax = csstree.fork({
         }
     }
 });
+
+// Parsing with custom node types
+
+interface CustomNode extends csstree.CssNodeCommon {
+    type: 'CustomNode';
+    value: string;
+}
+
+type CustomNodes = csstree.CssNode | CustomNode;
+
+function customParseFunction(this: csstree.ParserContext<CustomNodes>, value: string) {
+
+    const node = this.CustomNode();
+    const id = this.Identifier();
+
+    return {
+        type: 'CustomNode2',
+        value: node.value
+    };
+}
+
+const partialNodeConfig: Partial<csstree.NodeSyntaxConfig> = {
+    parse(this: csstree.ParserContext<CustomNodes>, value: string) {
+        const node = this.CustomNode();
+        return {
+            type: 'CustomNode3',
+            value: node.value
+        };
+    },
+}
 
 const customAst = customSyntax.parse('.example { custom: value }');
 customSyntax.walk(customAst,
