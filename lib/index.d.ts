@@ -525,6 +525,22 @@ export interface CssNodeCommon {
     loc?: CssLocationRange | null;
 }
 
+export interface CssParentNodeCommon<T = CssNode> extends CssNodeCommon {
+    children: List<T>;
+}
+
+export interface CssParentNodeCommonPlain<T = CssNodePlain> extends CssNodeCommon {
+    children: T[];
+}
+
+export interface CssOptionalParentNodeCommon<T = CssNode> extends CssNodeCommon {
+    children: List<T> | null;
+}
+
+export interface CssOptionalParentNodeCommonPlain<T = CssNodePlain> extends CssNodeCommon {
+    children: T[] | null;
+}
+
 export interface AnPlusB extends CssNodeCommon {
     type: "AnPlusB";
     a: string | null;
@@ -545,14 +561,12 @@ export interface AtrulePlain extends CssNodeCommon {
     block: BlockPlain | null;
 }
 
-export interface AtrulePrelude extends CssNodeCommon {
+export interface AtrulePrelude extends CssParentNodeCommon {
     type: "AtrulePrelude";
-    children: List<CssNode>;
 }
 
-export interface AtrulePreludePlain extends CssNodeCommon {
+export interface AtrulePreludePlain extends CssParentNodeCommonPlain {
     type: "AtrulePrelude";
-    children: CssNodePlain[];
 }
 
 export interface AttributeSelector extends CssNodeCommon {
@@ -563,24 +577,20 @@ export interface AttributeSelector extends CssNodeCommon {
     flags: string | null;
 }
 
-export interface Block extends CssNodeCommon {
+export interface Block extends CssParentNodeCommon {
     type: "Block";
-    children: List<CssNode>;
 }
 
-export interface BlockPlain extends CssNodeCommon {
+export interface BlockPlain extends CssParentNodeCommonPlain {
     type: "Block";
-    children: CssNodePlain[];
 }
 
-export interface Brackets extends CssNodeCommon {
+export interface Brackets extends CssParentNodeCommon {
     type: "Brackets";
-    children: List<CssNode>;
 }
 
-export interface BracketsPlain extends CssNodeCommon {
+export interface BracketsPlain extends CssParentNodeCommonPlain {
     type: "Brackets";
-    children: CssNodePlain[];
 }
 
 export interface CDC extends CssNodeCommon {
@@ -606,16 +616,14 @@ export interface Comment extends CssNodeCommon {
     value: string;
 }
 
-export interface Condition extends CssNodeCommon {
+export interface Condition extends CssParentNodeCommon {
     type: "Condition";
     kind: string;
-    children: List<CssNode>;
 }
 
-export interface ConditionPlain extends CssNodeCommon {
+export interface ConditionPlain extends CssParentNodeCommonPlain {
     type: "Condition";
     kind: string;
-    children: CssNodePlain[];
 }
 
 export interface Declaration extends CssNodeCommon {
@@ -632,14 +640,12 @@ export interface DeclarationPlain extends CssNodeCommon {
     value: ValuePlain | Raw;
 }
 
-export interface DeclarationList extends CssNodeCommon {
+export interface DeclarationList extends CssParentNodeCommon {
     type: "DeclarationList";
-    children: List<CssNode>;
 }
 
-export interface DeclarationListPlain extends CssNodeCommon {
+export interface DeclarationListPlain extends CssParentNodeCommonPlain {
     type: "DeclarationList";
-    children: CssNodePlain[];
 }
 
 export interface Dimension extends CssNodeCommon {
@@ -679,16 +685,14 @@ export interface FeatureRange extends CssNodeCommon {
     right: Identifier | NumberNode | Dimension | Ratio | FunctionNode | null;
 }
 
-export interface FunctionNode extends CssNodeCommon {
+export interface FunctionNode extends CssParentNodeCommon {
     type: "Function";
     name: string;
-    children: List<CssNode>;
 }
 
-export interface FunctionNodePlain extends CssNodeCommon {
+export interface FunctionNodePlain extends CssParentNodeCommonPlain {
     type: "Function";
     name: string;
-    children: CssNodePlain[];
 }
 
 export interface Hash extends CssNodeCommon {
@@ -711,14 +715,12 @@ export interface Layer extends CssNodeCommon {
     name: string;
 }
 
-export interface LayerList extends CssNodeCommon {
+export interface LayerList extends CssParentNodeCommon<Layer> {
     type: "LayerList";
-    children: List<Layer>;
 }
 
-export interface LayerListPlain extends CssNodeCommon {
+export interface LayerListPlain extends CssParentNodeCommonPlain<Layer> {
     type: "LayerList";
-    children: Layer[];
 }
 
 export interface MediaFeature extends CssNodeCommon {
@@ -727,24 +729,20 @@ export interface MediaFeature extends CssNodeCommon {
     value: Identifier | NumberNode | Dimension | Ratio | null;
 }
 
-export interface MediaQuery extends CssNodeCommon {
+export interface MediaQuery extends CssParentNodeCommon {
     type: "MediaQuery";
-    children: List<CssNode>;
 }
 
-export interface MediaQueryPlain extends CssNodeCommon {
+export interface MediaQueryPlain extends CssParentNodeCommonPlain {
     type: "MediaQuery";
-    children: CssNodePlain[];
 }
 
-export interface MediaQueryList extends CssNodeCommon {
+export interface MediaQueryList extends CssParentNodeCommon<MediaQuery> {
     type: "MediaQueryList";
-    children: List<CssNode>;
 }
 
-export interface MediaQueryListPlain extends CssNodeCommon {
+export interface MediaQueryListPlain extends CssParentNodeCommonPlain<MediaQueryPlain> {
     type: "MediaQueryList";
-    children: CssNodePlain[];
 }
 
 export interface NestingSelector extends CssNodeCommon {
@@ -773,14 +771,12 @@ export interface Operator extends CssNodeCommon {
     value: string;
 }
 
-export interface Parentheses extends CssNodeCommon {
+export interface Parentheses extends CssParentNodeCommon {
     type: "Parentheses";
-    children: List<CssNode>;
 }
 
-export interface ParenthesesPlain extends CssNodeCommon {
+export interface ParenthesesPlain extends CssParentNodeCommonPlain {
     type: "Parentheses";
-    children: CssNodePlain[];
 }
 
 export interface Percentage extends CssNodeCommon {
@@ -788,28 +784,24 @@ export interface Percentage extends CssNodeCommon {
     value: string;
 }
 
-export interface PseudoClassSelector extends CssNodeCommon {
+export interface PseudoClassSelector extends CssOptionalParentNodeCommon {
     type: "PseudoClassSelector";
     name: string;
-    children: List<CssNode> | null;
 }
 
-export interface PseudoClassSelectorPlain extends CssNodeCommon {
+export interface PseudoClassSelectorPlain extends CssOptionalParentNodeCommonPlain {
     type: "PseudoClassSelector";
     name: string;
-    children: CssNodePlain[] | null;
 }
 
-export interface PseudoElementSelector extends CssNodeCommon {
+export interface PseudoElementSelector extends CssOptionalParentNodeCommon {
     type: "PseudoElementSelector";
     name: string;
-    children: List<CssNode> | null;
 }
 
-export interface PseudoElementSelectorPlain extends CssNodeCommon {
+export interface PseudoElementSelectorPlain extends CssOptionalParentNodeCommonPlain {
     type: "PseudoElementSelector";
     name: string;
-    children: CssNodePlain[] | null;
 }
 
 export interface Ratio extends CssNodeCommon {
@@ -835,24 +827,20 @@ export interface RulePlain extends CssNodeCommon {
     block: BlockPlain;
 }
 
-export interface Selector extends CssNodeCommon {
+export interface Selector extends CssParentNodeCommon {
     type: "Selector";
-    children: List<CssNode>;
 }
 
-export interface SelectorPlain extends CssNodeCommon {
+export interface SelectorPlain extends CssParentNodeCommonPlain {
     type: "Selector";
-    children: CssNodePlain[];
 }
 
-export interface SelectorList extends CssNodeCommon {
+export interface SelectorList extends CssParentNodeCommon {
     type: "SelectorList";
-    children: List<CssNode>;
 }
 
-export interface SelectorListPlain extends CssNodeCommon {
+export interface SelectorListPlain extends CssParentNodeCommonPlain {
     type: "SelectorList";
-    children: CssNodePlain[];
 }
 
 export interface StringNode extends CssNodeCommon {
@@ -860,9 +848,8 @@ export interface StringNode extends CssNodeCommon {
     value: string;
 }
 
-export interface StyleSheet extends CssNodeCommon {
+export interface StyleSheet extends CssParentNodeCommon {
     type: "StyleSheet";
-    children: List<CssNode>;
 }
 
 export interface SupportsDeclaration extends CssNodeCommon {
@@ -870,9 +857,8 @@ export interface SupportsDeclaration extends CssNodeCommon {
     declaration: Declaration | Raw;
 }
 
-export interface StyleSheetPlain extends CssNodeCommon {
+export interface StyleSheetPlain extends CssParentNodeCommonPlain {
     type: "StyleSheet";
-    children: CssNodePlain[];
 }
 
 export interface TypeSelector extends CssNodeCommon {
@@ -890,14 +876,12 @@ export interface Url extends CssNodeCommon {
     value: string;
 }
 
-export interface Value extends CssNodeCommon {
+export interface Value extends CssParentNodeCommon {
     type: "Value";
-    children: List<CssNode>;
 }
 
-export interface ValuePlain extends CssNodeCommon {
+export interface ValuePlain extends CssParentNodeCommonPlain {
     type: "Value";
-    children: CssNodePlain[];
 }
 
 export interface WhiteSpace extends CssNodeCommon {
