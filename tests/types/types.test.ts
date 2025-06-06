@@ -282,7 +282,11 @@ const customSyntax = csstree.fork({
                     value: 'hello'
                 };
             },
-            generate: (node) => {
+            generate(node: csstree.CssNode) {
+                this.node(node);
+                this.children(node);
+                this.token(1, 'foo');
+                this.tokenize('foo');
                 return `custom3: ${node.type}`;
             }
         },
