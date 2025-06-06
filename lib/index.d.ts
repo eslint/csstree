@@ -1700,6 +1700,37 @@ export type GenerateFunction = (ast: AnyCssNode, options?: GenerateOptions) => s
  */
 export const generate: GenerateFunction;
 
+/**
+ * Represents the context object passed to a Node's `generate` function.
+ * @see https://github.com/csstree/csstree/blob/56afb6dd761149099cd3cdfb0a38e15e8cc0a71a/lib/generator/create.js#L86-L91
+ */
+export interface GeneratorContext {
+    /**
+     * Tokenizes a string or node.
+     * @param value - The value to tokenize.
+     */
+    tokenize(value: string): void;
+
+    /**
+     * Processes a child node.
+     * @param node - The child node to process.
+     */
+    node(node: CssNode): void;
+
+    /**
+     * Processes all children of a node.
+     * @param node - The parent node whose children are processed.
+     */
+    children(node: CssNode): void;
+
+    /**
+     * Emits a token with a specific type and value.
+     * @param type - The type of the token.
+     * @param value - The value of the token.
+     */
+    token(type: number, value: string): void;
+}
+
 // ----------------------------------------------------------
 // Walker
 // ----------------------------------------------------------
@@ -2720,7 +2751,7 @@ interface NodeSyntaxConfig<T extends CssNodeCommon = CssNodeCommon> {
     name: string;
     structure: StructureDefinition;
     parse(this: ParserContext, ...args:Array<unknown>): T;
-    generate(this: ParserContext, node: T): void;
+    generate(this: GeneratorContext, node: T): void;
     walkContext?: string;
 }
 
