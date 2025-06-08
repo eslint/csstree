@@ -2729,10 +2729,13 @@ type ParseConfig = {
 } & Pick<SyntaxConfig, 'features' | 'scope'>;
 
 // https://github.com/csstree/csstree/blob/9de5189fadd6fb4e3a149eec0e80d6ed0d0541e5/lib/parser/create.js#L90
-type ParserContext = TokenStream
+type ParserContext<AvailableNodes extends CssNodeCommon = CssNode> = TokenStream
     & ParseConfig
     & { config: ParseConfig }
     & Parser
+    & {
+        [K in AvailableNodes["type"]]: (this: ParserContext, ...args: unknown[]) => Extract<AvailableNodes, { type: K }>;
+    }
     & {
         // Anything else
         [key: string]: unknown;
