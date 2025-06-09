@@ -525,19 +525,19 @@ export interface CssNodeCommon {
     loc?: CssLocationRange | null;
 }
 
-export interface CssParentNodeCommon<T = CssNode> extends CssNodeCommon {
+export interface CssParentNodeCommon<T extends CssNode = CssNode> extends CssNodeCommon {
     children: List<T>;
 }
 
-export interface CssParentNodeCommonPlain<T = CssNodePlain> extends CssNodeCommon {
+export interface CssParentNodeCommonPlain<T extends CssNodePlain = CssNodePlain> extends CssNodeCommon {
     children: T[];
 }
 
-export interface CssOptionalParentNodeCommon<T = CssNode> extends CssNodeCommon {
+export interface CssOptionalParentNodeCommon<T extends CssNode = CssNode> extends CssNodeCommon {
     children: List<T> | null;
 }
 
-export interface CssOptionalParentNodeCommonPlain<T = CssNodePlain> extends CssNodeCommon {
+export interface CssOptionalParentNodeCommonPlain<T extends CssNodePlain = CssNodePlain> extends CssNodeCommon {
     children: T[] | null;
 }
 
