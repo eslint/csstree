@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.6.1](https://github.com/eslint/csstree/compare/css-tree-v3.6.0...css-tree-v3.6.1) (2025-06-09)
+
+
+### Bug Fixes
+
+* ParserContext to have all methods ([e069f6f](https://github.com/eslint/csstree/commit/e069f6f50e64bb1728208e845498561fa5afe287))
+* ParserContext type to have all methods ([#57](https://github.com/eslint/csstree/issues/57)) ([e069f6f](https://github.com/eslint/csstree/commit/e069f6f50e64bb1728208e845498561fa5afe287))
+* Types for node generate() function ([#56](https://github.com/eslint/csstree/issues/56)) ([846120b](https://github.com/eslint/csstree/commit/846120b5a0e64b6e7b8105ddef904a07b93e5c8b))
+
 ## [3.6.0](https://github.com/eslint/csstree/compare/css-tree-v3.5.4...css-tree-v3.6.0) (2025-06-05)
 
 
