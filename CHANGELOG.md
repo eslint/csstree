@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.2](https://github.com/eslint/csstree/compare/css-tree-v3.6.1...css-tree-v3.6.2) (2025-07-21)
+
+
+### Bug Fixes
+
+* Revert "Remove outdated `@font-face/unicode-range`" ([#61](https://github.com/eslint/csstree/issues/61)) ([4aad29d](https://github.com/eslint/csstree/commit/4aad29d7fd29f15e5ff981667b14cab054003060))
+
 ## [3.6.1](https://github.com/eslint/csstree/compare/css-tree-v3.6.0...css-tree-v3.6.1) (2025-06-09)
 
 
