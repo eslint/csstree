@@ -1551,5 +1551,245 @@
                 ]
             }
         }
+    },
+    "nested > combinator at start": {
+        "source": ".parent { color: red; > .child { color: blue; } }",
+        "generate": ".parent{color:red;>.child{color:blue}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "parent"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "Combinator",
+                                            "name": ">"
+                                        },
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "child"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "blue"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested + combinator at start": {
+        "source": ".parent { color: red; + .sibling { color: green; } }",
+        "generate": ".parent{color:red;+.sibling{color:green}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "parent"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "Combinator",
+                                            "name": "+"
+                                        },
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "sibling"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "green"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested ~ combinator at start": {
+        "source": ".parent { color: red; ~ .general { color: yellow; } }",
+        "generate": ".parent{color:red;~.general{color:yellow}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "parent"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "Combinator",
+                                            "name": "~"
+                                        },
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "general"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "yellow"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
