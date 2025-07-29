@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.3](https://github.com/eslint/csstree/compare/css-tree-v3.6.2...css-tree-v3.6.3) (2025-07-29)
+
+
+### Bug Fixes
+
+* expand nested CSS combinator selectors support in block parsing ([#64](https://github.com/eslint/csstree/issues/64)) ([94249a2](https://github.com/eslint/csstree/commit/94249a24949cd0755ba7e415f6d655ddbeea2bac))
+
 ## [3.6.2](https://github.com/eslint/csstree/compare/css-tree-v3.6.1...css-tree-v3.6.2) (2025-07-21)
 
 
