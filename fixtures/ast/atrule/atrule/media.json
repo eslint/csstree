@@ -358,6 +358,93 @@
             "block": null
         }
     },
+    "@media with child combinator selector": {
+        "source": "@media screen {\n   > * {}\n}",
+        "generate": "@media screen{>*{}}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "Combinator",
+                                            "name": ">"
+                                        },
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "*"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "@media with declaration": {
+        "source": "@media screen {\n   color: red;  \n}",
+        "generate": "@media screen{color: red;}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "color: red;"
+                    }
+                ]
+            }
+        }
+    },
     "error": [
         {
             "source": "@media foo screen {}",
