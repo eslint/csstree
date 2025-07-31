@@ -1791,5 +1791,142 @@
                 ]
             }
         }
+    },
+    "nested @media with nesting selector": {
+        "source": "slot { margin: 0; @media (max-width: 52rem) { display: inline-block; .page-nav-icon + & { display: none; } } }",
+        "generate": "slot{margin:0;@media (max-width:52rem){display:inline-block;.page-nav-icon+&{display:none}}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "slot"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "margin",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Number",
+                                    "value": "0"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Atrule",
+                        "name": "media",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "children": [
+                                {
+                                    "type": "MediaQueryList",
+                                    "children": [
+                                        {
+                                            "type": "MediaQuery",
+                                            "modifier": null,
+                                            "mediaType": null,
+                                            "condition": {
+                                                "type": "Condition",
+                                                "kind": "media",
+                                                "children": [
+                                                    {
+                                                        "type": "Feature",
+                                                        "kind": "media",
+                                                        "name": "max-width",
+                                                        "value": {
+                                                            "type": "Dimension",
+                                                            "value": "52",
+                                                            "unit": "rem"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "display",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "inline-block"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Rule",
+                                    "prelude": {
+                                        "type": "SelectorList",
+                                        "children": [
+                                            {
+                                                "type": "Selector",
+                                                "children": [
+                                                    {
+                                                        "type": "ClassSelector",
+                                                        "name": "page-nav-icon"
+                                                    },
+                                                    {
+                                                        "type": "Combinator",
+                                                        "name": "+"
+                                                    },
+                                                    {
+                                                        "type": "NestingSelector"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "block": {
+                                        "type": "Block",
+                                        "children": [
+                                            {
+                                                "type": "Declaration",
+                                                "important": false,
+                                                "property": "display",
+                                                "value": {
+                                                    "type": "Value",
+                                                    "children": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "none"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
