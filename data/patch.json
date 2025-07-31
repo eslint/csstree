@@ -14,6 +14,39 @@
                 }
             }
         },
+        "font-feature-values": {
+            "comment": "Support for @font-feature-values with nested at-rules",
+            "descriptors": {
+                "annotation": {
+                    "comment": "Font feature values for annotation variants",
+                    "syntax": "<feature-value-declaration-list>"
+                },
+                "character-variant": {
+                    "comment": "Font feature values for character variants",
+                    "syntax": "<feature-value-declaration-list>"
+                },
+                "historical-forms": {
+                    "comment": "Font feature values for historical forms",
+                    "syntax": "<feature-value-declaration-list>"
+                },
+                "ornaments": {
+                    "comment": "Font feature values for ornaments",
+                    "syntax": "<feature-value-declaration-list>"
+                },
+                "styleset": {
+                    "comment": "Font feature values for stylistic sets",
+                    "syntax": "<feature-value-declaration-list>"
+                },
+                "stylistic": {
+                    "comment": "Font feature values for stylistic alternates",
+                    "syntax": "<feature-value-declaration-list>"
+                },
+                "swash": {
+                    "comment": "Font feature values for swash variants",
+                    "syntax": "<feature-value-declaration-list>"
+                }
+            }
+        },
         "nest": {
             "prelude": "<complex-selector-list>"
         },
