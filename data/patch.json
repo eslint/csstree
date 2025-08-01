@@ -14,6 +14,34 @@
                 }
             }
         },
+        "annotation": {
+            "comment": "Nested at-rule for @font-feature-values - annotation variants",
+            "prelude": null
+        },
+        "character-variant": {
+            "comment": "Nested at-rule for @font-feature-values - character variants",
+            "prelude": null
+        },
+        "historical-forms": {
+            "comment": "Nested at-rule for @font-feature-values - historical forms",
+            "prelude": null
+        },
+        "ornaments": {
+            "comment": "Nested at-rule for @font-feature-values - ornaments",
+            "prelude": null
+        },
+        "styleset": {
+            "comment": "Nested at-rule for @font-feature-values - stylistic sets",
+            "prelude": null
+        },
+        "stylistic": {
+            "comment": "Nested at-rule for @font-feature-values - stylistic alternates",
+            "prelude": null
+        },
+        "swash": {
+            "comment": "Nested at-rule for @font-feature-values - swash variants",
+            "prelude": null
+        },
         "nest": {
             "prelude": "<complex-selector-list>"
         },
