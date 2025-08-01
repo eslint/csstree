@@ -14,38 +14,33 @@
                 }
             }
         },
-        "font-feature-values": {
-            "comment": "Support for @font-feature-values with nested at-rules",
-            "descriptors": {
-                "annotation": {
-                    "comment": "Font feature values for annotation variants",
-                    "syntax": "<feature-value-declaration-list>"
-                },
-                "character-variant": {
-                    "comment": "Font feature values for character variants",
-                    "syntax": "<feature-value-declaration-list>"
-                },
-                "historical-forms": {
-                    "comment": "Font feature values for historical forms",
-                    "syntax": "<feature-value-declaration-list>"
-                },
-                "ornaments": {
-                    "comment": "Font feature values for ornaments",
-                    "syntax": "<feature-value-declaration-list>"
-                },
-                "styleset": {
-                    "comment": "Font feature values for stylistic sets",
-                    "syntax": "<feature-value-declaration-list>"
-                },
-                "stylistic": {
-                    "comment": "Font feature values for stylistic alternates",
-                    "syntax": "<feature-value-declaration-list>"
-                },
-                "swash": {
-                    "comment": "Font feature values for swash variants",
-                    "syntax": "<feature-value-declaration-list>"
-                }
-            }
+        "annotation": {
+            "comment": "Nested at-rule for @font-feature-values - annotation variants",
+            "prelude": null
+        },
+        "character-variant": {
+            "comment": "Nested at-rule for @font-feature-values - character variants",
+            "prelude": null
+        },
+        "historical-forms": {
+            "comment": "Nested at-rule for @font-feature-values - historical forms",
+            "prelude": null
+        },
+        "ornaments": {
+            "comment": "Nested at-rule for @font-feature-values - ornaments",
+            "prelude": null
+        },
+        "styleset": {
+            "comment": "Nested at-rule for @font-feature-values - stylistic sets",
+            "prelude": null
+        },
+        "stylistic": {
+            "comment": "Nested at-rule for @font-feature-values - stylistic alternates",
+            "prelude": null
+        },
+        "swash": {
+            "comment": "Nested at-rule for @font-feature-values - swash variants",
+            "prelude": null
         },
         "nest": {
             "prelude": "<complex-selector-list>"
