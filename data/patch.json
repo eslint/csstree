@@ -811,18 +811,6 @@
             "references": [
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
-        },
-        "font-variant-css2": {
-            "syntax": "normal | small-caps",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-variant-css21-values"
-        },
-        "font-width-css3": {
-            "syntax": "normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-width-css3-values"
-        },
-        "system-family-name": {
-            "syntax": "caption | icon | menu | message-box | small-caption | status-bar",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#system-family-name-value"
         }
     }
 }
