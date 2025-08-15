@@ -14,8 +14,12 @@
                 }
             }
         },
-        "nest": {
-            "prelude": "<complex-selector-list>"
+        "font-features-values": {
+            "comment": "The features values syntax is defined in https://www.w3.org/TR/css-fonts-4/#at-ruledef-font-feature-values",
+            "prelude": "[<string> | <custom-ident>]+",
+            "descriptors": {
+                "font-display": "auto | block | swap | fallback | optional"
+            }
         },
         "scope": {
             "prelude": "[ ( <scope-start> ) ]? [ to ( <scope-end> ) ]?"
