@@ -576,7 +576,7 @@ type Scope = {
 ```ts
 type Selector = {
     type: "Selector";
-    children: List<TypeSelector | IdSelector | ClassSelector | AttributeSelector | PseudoClassSelector | PseudoElementSelector | Combinator>;
+    children: List<TypeSelector | IdSelector | ClassSelector | AttributeSelector | PseudoClassSelector | PseudoElementSelector | NestingSelector | Combinator>;
 }
 ```
 
