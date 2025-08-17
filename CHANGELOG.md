@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.6.4](https://github.com/eslint/csstree/compare/css-tree-v3.6.3...css-tree-v3.6.4) (2025-08-17)
+
+
+### Bug Fixes
+
+* Correct [@font-feature-values](https://github.com/font-feature-values) nested at-rules structure ([#69](https://github.com/eslint/csstree/issues/69)) ([fb1c8e0](https://github.com/eslint/csstree/commit/fb1c8e0f668e14591b68ac522f92fcc43a60140d))
+* Increase iteration limit ([#74](https://github.com/eslint/csstree/issues/74)) ([8c4813d](https://github.com/eslint/csstree/commit/8c4813d76d487236f6ae1dfd5974fe88b676d1fc))
+
 ## [3.6.3](https://github.com/eslint/csstree/compare/css-tree-v3.6.2...css-tree-v3.6.3) (2025-07-29)
 
 
