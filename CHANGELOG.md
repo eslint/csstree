@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.5](https://github.com/eslint/csstree/compare/css-tree-v3.6.4...css-tree-v3.6.5) (2025-08-25)
+
+
+### Bug Fixes
+
+* Allow nested at-rules to have nested rules ([#77](https://github.com/eslint/csstree/issues/77)) ([c166f2d](https://github.com/eslint/csstree/commit/c166f2d43006d2ed96ca777a278c125f9243ed89))
+
 ## [3.6.4](https://github.com/eslint/csstree/compare/css-tree-v3.6.3...css-tree-v3.6.4) (2025-08-17)
 
 
