@@ -815,6 +815,10 @@
             "references": [
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
+        },
+        "unicode-range-token": {
+            "comment": "maps MDN's <unicode-range-token> to the correct <urange> type",
+            "syntax": "<urange>"
         }
     }
 }
