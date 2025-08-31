@@ -774,10 +774,10 @@
             "syntax": "color( <colorspace-params> [ / [ <alpha-value> | none ] ]? )"
         },
         "rgb()": {
-           "syntax": "rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgb( from <color> [ <number> | <percentage> | <component-ident> | <calc()> ]{3} [ / [ <alpha-value> | <component-ident> | <calc()> ] ]? )"
+            "syntax": "rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgb( from <color> [ <number> | <percentage> | <component-ident> | <calc()> ]{3} [ / [ <alpha-value> | <component-ident> | <calc()> ] ]? )"
         },
         "rgba()": {
-           "syntax": "rgba( <number>#{3} , <alpha-value>? ) | rgba( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgba( from <color> [ <number> | <percentage> | <component-ident> | <calc()> ]{3} [ / [ <alpha-value> | <component-ident> | <calc()> ] ]? )"
+            "syntax": "rgba( <number>#{3} , <alpha-value>? ) | rgba( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgba( from <color> [ <number> | <percentage> | <component-ident> | <calc()> ]{3} [ / [ <alpha-value> | <component-ident> | <calc()> ] ]? )"
         },
         "colorspace-params": {
             "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
