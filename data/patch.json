@@ -584,6 +584,9 @@
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "not <query-in-parens> | <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ]"
         },
+        "component-ident": {
+            "syntax": "r | g | b | alpha"
+        },
         "coord-box": {
             "syntax": "content-box | padding-box | border-box | fill-box | stroke-box | view-box"
         },
@@ -769,6 +772,12 @@
         },
         "color()": {
             "syntax": "color( <colorspace-params> [ / [ <alpha-value> | none ] ]? )"
+        },
+        "rgb()": {
+            "syntax": "rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgb( from <color> [ <number> | <percentage> | <component-ident> | <calc()> ]{3} [ / [ <alpha-value> | <component-ident> | <calc()> ] ]? )"
+        },
+        "rgba()": {
+            "syntax": "rgba( <number>#{3} , <alpha-value>? ) | rgba( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgba( from <color> [ <number> | <percentage> | <component-ident> | <calc()> ]{3} [ / [ <alpha-value> | <component-ident> | <calc()> ] ]? )"
         },
         "colorspace-params": {
             "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
