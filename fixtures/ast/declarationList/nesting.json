@@ -249,24 +249,153 @@
             ]
         }
     },
-    "don't parse nested rule when it not started with &": {
+    "nested rules with various selectors": {
         "source": ".bar & { color: green; }; div:hover { color: red; }",
-        "generate": ".bar & { color: green; };div:hover { color: red; }",
+        "generate": ".bar &{color:green}div:hover{color:red}",
         "ast": {
-
             "type": "DeclarationList",
             "children": [
                 {
-                    "type": "Raw",
-                    "value": ".bar & { color: green; };"
+                    "type": "Rule",
+                    "prelude": {
+                        "type": "SelectorList",
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "ClassSelector",
+                                        "name": "bar"
+                                    },
+                                    {
+                                        "type": "Combinator",
+                                        "name": " "
+                                    },
+                                    {
+                                        "type": "NestingSelector"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "color",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "green"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
                 },
+                {
+                    "type": "Rule",
+                    "prelude": {
+                        "type": "SelectorList",
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "TypeSelector",
+                                        "name": "div"
+                                    },
+                                    {
+                                        "type": "PseudoClassSelector",
+                                        "name": "hover",
+                                        "children": null
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "color",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "red"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "nested element selector": {
+        "source": "color: blue; p { margin: 0; }",
+        "generate": "color:blue;p{margin:0}",
+        "ast": {
+            "type": "DeclarationList",
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
-                    "property": "div",
+                    "property": "color",
                     "value": {
-                        "type": "Raw",
-                        "value": "hover { color: red; }"
+                        "type": "Value",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "blue"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Rule",
+                    "prelude": {
+                        "type": "SelectorList",
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "TypeSelector",
+                                        "name": "p"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "margin",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             ]
