@@ -770,6 +770,48 @@
         "color()": {
             "syntax": "color( <colorspace-params> [ / [ <alpha-value> | none ] ]? )"
         },
+        "rgb-ident": {
+            "syntax": "r | g | b | alpha"
+        },
+        "rgb()": {
+            "syntax": "rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgb( from <color> [ <number> | <percentage> | <rgb-ident> ]{3} [ / [ <alpha-value> | <rgb-ident> ] ]? )"
+        },
+        "rgba()": {
+            "syntax": "rgba( <percentage>#{3} , <alpha-value>? ) | rgba( <number>#{3} , <alpha-value>? ) | rgba( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgba( from <color> [ <number> | <percentage> | <rgb-ident> ]{3} [ / [ <alpha-value> | <rgb-ident> ] ]? )"
+        },
+        "hsl-ident": {
+            "syntax": "h | s | l | alpha"
+        },
+        "hsl()": {
+            "syntax": "hsl( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsl( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) | hsl( from <color> [ <hue> | <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ / [ <alpha-value> | <hsl-ident> | none ] ]? )"
+        },
+        "hsla()": {
+            "syntax": "hsla( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsla( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) | hsla( from <color> [ <hue> | <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ / [ <alpha-value> | <hsl-ident> | none ] ]? )"
+        },
+        "hwb-ident": {
+            "syntax": "h | w | b"
+        },
+        "hwb()": {
+            "syntax": "hwb( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) | hwb( from <color> [ <hue> | <percentage> | <number> | <hwb-ident> | none ] [ <percentage> | <number> | <hwb-ident> | none ] [ <percentage> | <number> | <hwb-ident> | none ] [ / [ <alpha-value> | <hwb-ident> | none ] ]? )"
+        },
+        "lab-ident": {
+            "syntax": "l | a | b | alpha"
+        },
+        "lab()": {
+            "syntax": "lab( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? ) | lab( from <color> [ <number> | <percentage> | <lab-ident> ]{3} [ / [ <alpha-value> | <lab-ident> ] ]? )"
+        },
+        "oklab()": {
+            "syntax": "oklab( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? ) | oklab( from <color> [ <number> | <percentage> | <lab-ident> ]{3} [ / [ <alpha-value> | <lab-ident> ] ]? )"
+        },
+        "lch-ident": {
+            "syntax": "l | c | h | alpha"
+        },
+        "lch()": {
+            "syntax": "lch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? ) | lch( from <color> [ <number> | <percentage> | <lch-ident> ]{3} [ / [ <alpha-value> | <lch-ident> ] ]? )"
+        },
+        "oklch()": {
+            "syntax": "oklch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? ) | oklch( from <color> [ <number> | <percentage> | <lch-ident> ]{3} [ / [ <alpha-value> | <lch-ident> ] ]? )"
+        },
         "colorspace-params": {
             "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
         },
