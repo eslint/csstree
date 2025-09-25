@@ -770,47 +770,103 @@
         "color()": {
             "syntax": "color( <colorspace-params> [ / [ <alpha-value> | none ] ]? )"
         },
-        "rgb-ident": {
+        "rgb-component": {
             "syntax": "r | g | b | alpha"
         },
+        "legacy-rgb-syntax": {
+                "syntax": "rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? )"
+            },
+            "modern-rgb-syntax": {
+                "syntax": "rgb( from <color> [ <number> | <percentage> | <rgb-component> ]{3} [ / [ <alpha-value> | <rgb-component> ] ]? )"
+            },
         "rgb()": {
-            "syntax": "rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgb( from <color> [ <number> | <percentage> | <rgb-ident> ]{3} [ / [ <alpha-value> | <rgb-ident> ] ]? )"
+            
+            "syntax": "<legacy-rgb-syntax> | <modern-rgb-syntax>"
+        },
+        "legacy-rgba-syntax": {
+            "syntax": "rgba( <percentage>#{3} , <alpha-value>? ) | rgba( <number>#{3} , <alpha-value>? ) | rgba( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? )"
+        },
+        "modern-rgba-syntax": {
+            "syntax": "rgba( from <color> [ <number> | <percentage> | <rgb-component> ]{3} [ / [ <alpha-value> | <rgb-component> ] ]? )"
         },
         "rgba()": {
-            "syntax": "rgba( <percentage>#{3} , <alpha-value>? ) | rgba( <number>#{3} , <alpha-value>? ) | rgba( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) | rgba( from <color> [ <number> | <percentage> | <rgb-ident> ]{3} [ / [ <alpha-value> | <rgb-ident> ] ]? )"
+            "syntax": "<legacy-rgba-syntax> | <modern-rgba-syntax>"
         },
-        "hsl-ident": {
+        "hsl-component": {
             "syntax": "h | s | l | alpha"
         },
+        "legacy-hsl-syntax": {
+            "syntax": "hsl( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsl( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? )"
+        },
+        "modern-hsl-syntax": {
+            "syntax": "hsl( from <color> [ <hue> | <percentage> | <number> | <hsl-component> | none ] [ <percentage> | <number> | <hsl-component> | none ] [ <percentage> | <number> | <hsl-component> | none ] [ / [ <alpha-value> | <hsl-component> | none ] ]? )"
+        },
         "hsl()": {
-            "syntax": "hsl( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsl( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) | hsl( from <color> [ <hue> | <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ / [ <alpha-value> | <hsl-ident> | none ] ]? )"
+           
+            "syntax": "<legacy-hsl-syntax> | <modern-hsl-syntax>"
+        },
+        "legacy-hsla-syntax": {
+            "syntax": "hsla( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsla( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? )"
+        },
+        "modern-hsla-syntax": {
+            "syntax": "hsla( from <color> [ <hue> | <percentage> | <number> | <hsl-component> | none ] [ <percentage> | <number> | <hsl-component> | none ] [ <percentage> | <number> | <hsl-component> | none ] [ / [ <alpha-value> | <hsl-component> | none ] ]? )"
         },
         "hsla()": {
-            "syntax": "hsla( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsla( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) | hsla( from <color> [ <hue> | <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ <percentage> | <number> | <hsl-ident> | none ] [ / [ <alpha-value> | <hsl-ident> | none ] ]? )"
+            "syntax": "<legacy-hsla-syntax> | <modern-hsla-syntax>"
         },
-        "hwb-ident": {
+        "hwb-component": {
             "syntax": "h | w | b"
         },
-        "hwb()": {
-            "syntax": "hwb( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) | hwb( from <color> [ <hue> | <percentage> | <number> | <hwb-ident> | none ] [ <percentage> | <number> | <hwb-ident> | none ] [ <percentage> | <number> | <hwb-ident> | none ] [ / [ <alpha-value> | <hwb-ident> | none ] ]? )"
+        "legacy-hwb-syntax": {
+            "syntax": "hwb( [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? )"
         },
-        "lab-ident": {
+        "modern-hwb-syntax": {
+            "syntax": "hwb( from <color> [ <hue> | <percentage> | <number> | <hwb-component> | none ] [ <percentage> | <number> | <hwb-component> | none ] [ <percentage> | <number> | <hwb-component> | none ] [ / [ <alpha-value> | <hwb-component> | none ] ]? )"
+        },
+        "hwb()": {
+            "syntax": "<legacy-hwb-syntax> | <modern-hwb-syntax>"
+        },
+        "lab-component": {
             "syntax": "l | a | b | alpha"
         },
+        "legacy-lab-syntax": {
+            "syntax": "lab( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? )"
+        },
+        "modern-lab-syntax": {
+            "syntax": "lab( from <color> [ <number> | <percentage> | <lab-component> ]{3} [ / [ <alpha-value> | <lab-component> ] ]? )"
+        },
         "lab()": {
-            "syntax": "lab( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? ) | lab( from <color> [ <number> | <percentage> | <lab-ident> ]{3} [ / [ <alpha-value> | <lab-ident> ] ]? )"
+            "syntax": "<legacy-lab-syntax> | <modern-lab-syntax>"
+        },
+        "legacy-oklab-syntax": {
+            "syntax": "oklab( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? )"
+        },
+        "modern-oklab-syntax": {
+            "syntax": "oklab( from <color> [ <number> | <percentage> | <lab-component> ]{3} [ / [ <alpha-value> | <lab-component> ] ]? )"
         },
         "oklab()": {
-            "syntax": "oklab( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? ) | oklab( from <color> [ <number> | <percentage> | <lab-ident> ]{3} [ / [ <alpha-value> | <lab-ident> ] ]? )"
+            "syntax": "<legacy-oklab-syntax> | <modern-oklab-syntax>"
         },
-        "lch-ident": {
+        "lch-component": {
             "syntax": "l | c | h | alpha"
         },
+        "legacy-lch-syntax": {
+            "syntax": "lch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? )"
+        },
+        "modern-lch-syntax": {
+            "syntax": "lch( from <color> [ <number> | <percentage> | <lch-component> ]{3} [ / [ <alpha-value> | <lch-component> ] ]? )"
+        },
         "lch()": {
-            "syntax": "lch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? ) | lch( from <color> [ <number> | <percentage> | <lch-ident> ]{3} [ / [ <alpha-value> | <lch-ident> ] ]? )"
+            "syntax": "<legacy-lch-syntax> | <modern-lch-syntax>"
+        },
+        "legacy-oklch-syntax": {
+            "syntax": "oklch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? )"
+        },
+        "modern-oklch-syntax": {
+            "syntax": "oklch( from <color> [ <number> | <percentage> | <lch-component> ]{3} [ / [ <alpha-value> | <lch-component> ] ]? )"
         },
         "oklch()": {
-            "syntax": "oklch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? ) | oklch( from <color> [ <number> | <percentage> | <lch-ident> ]{3} [ / [ <alpha-value> | <lch-ident> ] ]? )"
+            "syntax": "<legacy-oklch-syntax> | <modern-oklch-syntax>"
         },
         "colorspace-params": {
             "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
