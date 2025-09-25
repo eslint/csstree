@@ -774,13 +774,12 @@
             "syntax": "r | g | b | alpha"
         },
         "legacy-rgb-syntax": {
-                "syntax": "rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? )"
-            },
-            "modern-rgb-syntax": {
-                "syntax": "rgb( from <color> [ <number> | <percentage> | <rgb-component> ]{3} [ / [ <alpha-value> | <rgb-component> ] ]? )"
-            },
+            "syntax": "rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? ) | rgb( [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? )"
+        },
+        "modern-rgb-syntax": {
+            "syntax": "rgb( from <color> [ <number> | <percentage> | <rgb-component> ]{3} [ / [ <alpha-value> | <rgb-component> ] ]? )"
+        },
         "rgb()": {
-            
             "syntax": "<legacy-rgb-syntax> | <modern-rgb-syntax>"
         },
         "legacy-rgba-syntax": {
@@ -802,7 +801,6 @@
             "syntax": "hsl( from <color> [ <hue> | <percentage> | <number> | <hsl-component> | none ] [ <percentage> | <number> | <hsl-component> | none ] [ <percentage> | <number> | <hsl-component> | none ] [ / [ <alpha-value> | <hsl-component> | none ] ]? )"
         },
         "hsl()": {
-           
             "syntax": "<legacy-hsl-syntax> | <modern-hsl-syntax>"
         },
         "legacy-hsla-syntax": {
