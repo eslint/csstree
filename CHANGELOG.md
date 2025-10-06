@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.6.6](https://github.com/eslint/csstree/compare/css-tree-v3.6.5...css-tree-v3.6.6) (2025-10-02)
+
+
+### Bug Fixes
+
+* add support for relative color values ([#87](https://github.com/eslint/csstree/issues/87)) ([486c559](https://github.com/eslint/csstree/commit/486c559ff4e9bed5c8f8b31f08396ca0737c8f78))
+* allow relative color syntax for rgb() & rgba() ([#80](https://github.com/eslint/csstree/issues/80)) ([a08c7ab](https://github.com/eslint/csstree/commit/a08c7ab7496ac653fc1c510d99e67d633a5f3139))
+
 ## [3.6.5](https://github.com/eslint/csstree/compare/css-tree-v3.6.4...css-tree-v3.6.5) (2025-08-25)
 
 
