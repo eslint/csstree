@@ -45,7 +45,12 @@ jobs:
             matrix:
                 os: [ubuntu-latest]
                 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-                node: [25, 24, 22, 20, "20.19.0"]
+                node:
+                    - 25
+                    - 24
+                    - 22
+                    - 22
+                    - "20.19.0"
                 include:
                     - os: windows-latest
                       node: lts/*
