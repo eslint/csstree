@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.6.7](https://github.com/eslint/csstree/compare/css-tree-v3.6.6...css-tree-v3.6.7) (2025-11-18)
+
+
+### Bug Fixes
+
+* browser hack property parsing and invalid selector validation ([#98](https://github.com/eslint/csstree/issues/98)) ([2f5781c](https://github.com/eslint/csstree/commit/2f5781cf6e746f213179d3a846bf3d5c176db827))
+* nested element selector parsing in DeclarationList context ([#85](https://github.com/eslint/csstree/issues/85)) ([f6222c9](https://github.com/eslint/csstree/commit/f6222c97776d004a4d917276459808ef65c0a519))
+
 ## [3.6.6](https://github.com/eslint/csstree/compare/css-tree-v3.6.5...css-tree-v3.6.6) (2025-10-02)
 
 
