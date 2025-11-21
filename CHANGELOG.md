@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.8](https://github.com/eslint/csstree/compare/css-tree-v3.6.7...css-tree-v3.6.8) (2025-11-21)
+
+
+### Bug Fixes
+
+* comma-separated declaration values parsed as Raw nodes ([#101](https://github.com/eslint/csstree/issues/101)) ([cb97ead](https://github.com/eslint/csstree/commit/cb97eadaed5297c314df117384f12f6815c4cdfe))
+
 ## [3.6.7](https://github.com/eslint/csstree/compare/css-tree-v3.6.6...css-tree-v3.6.7) (2025-11-18)
 
 
