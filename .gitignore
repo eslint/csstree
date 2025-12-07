@@ -1,6 +1,10 @@
 /.nyc_output/
 /.vscode/
+*.code-workspace
 /coverage/
 /cjs/
 /node_modules/
 /tmp/
+
+# Automatically generated files by GitHub Actions workflow
+/.shared-workflows

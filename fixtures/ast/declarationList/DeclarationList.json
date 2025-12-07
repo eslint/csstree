@@ -292,5 +292,108 @@
                 }
             ]
         }
+    },
+    "comma-separated values": {
+        "source": "background-attachment: scroll, scroll;",
+        "generate": "background-attachment:scroll,scroll",
+        "ast": {
+            "type": "DeclarationList",
+            "children": [
+                {
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "background-attachment",
+                    "value": {
+                        "type": "Value",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "scroll"
+                            },
+                            {
+                                "type": "Operator",
+                                "value": ","
+                            },
+                            {
+                                "type": "Identifier",
+                                "name": "scroll"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "multiple comma-separated values": {
+        "source": "font-family: Arial, sans-serif;",
+        "generate": "font-family:Arial,sans-serif",
+        "ast": {
+            "type": "DeclarationList",
+            "children": [
+                {
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "font-family",
+                    "value": {
+                        "type": "Value",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "Arial"
+                            },
+                            {
+                                "type": "Operator",
+                                "value": ","
+                            },
+                            {
+                                "type": "Identifier",
+                                "name": "sans-serif"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "comma-separated with dimensions": {
+        "source": "transition: opacity 1s, transform 0.5s;",
+        "generate": "transition:opacity 1s,transform 0.5s",
+        "ast": {
+            "type": "DeclarationList",
+            "children": [
+                {
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "transition",
+                    "value": {
+                        "type": "Value",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "opacity"
+                            },
+                            {
+                                "type": "Dimension",
+                                "value": "1",
+                                "unit": "s"
+                            },
+                            {
+                                "type": "Operator",
+                                "value": ","
+                            },
+                            {
+                                "type": "Identifier",
+                                "name": "transform"
+                            },
+                            {
+                                "type": "Dimension",
+                                "value": "0.5",
+                                "unit": "s"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     }
 }
