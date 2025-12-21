@@ -1928,5 +1928,343 @@
                 ]
             }
         }
+    },
+    "element-pseudo-class-nested": {
+        "source": "main { p:first-of-type { margin-top: 0; } }",
+        "generate": "main{p:first-of-type{margin-top:0}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "main"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "p"
+                                        },
+                                        {
+                                            "type": "PseudoClassSelector",
+                                            "name": "first-of-type",
+                                            "children": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "margin-top",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "0"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "element-pseudo-class-hover-nested": {
+        "source": "main { p:hover { color: red; } }",
+        "generate": "main{p:hover{color:red}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "main"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "p"
+                                        },
+                                        {
+                                            "type": "PseudoClassSelector",
+                                            "name": "hover",
+                                            "children": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "red"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "element-nested-simple": {
+        "source": "main { div { margin: 10px; } }",
+        "generate": "main{div{margin:10px}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "main"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "div"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "margin",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Dimension",
+                                                "value": "10",
+                                                "unit": "px"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "multiple-nested-selectors": {
+        "source": "main { p:hover { color: red; } div { margin: 10px; } .button { padding: 5px; } }",
+        "generate": "main{p:hover{color:red}div{margin:10px}.button{padding:5px}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "main"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "p"
+                                        },
+                                        {
+                                            "type": "PseudoClassSelector",
+                                            "name": "hover",
+                                            "children": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "red"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "div"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "margin",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Dimension",
+                                                "value": "10",
+                                                "unit": "px"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "button"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "padding",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Dimension",
+                                                "value": "5",
+                                                "unit": "px"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
