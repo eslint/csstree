@@ -649,6 +649,9 @@
         "cmyk-component": {
             "syntax": "<number> | <percentage> | none"
         },
+        "color-function": {
+            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <alpha()> | <color()>"
+        },
         "color-mix()": {
             "syntax": "color-mix( <color-interpolation-method> , [ <color> && <percentage [0,100]>? ]#{2} )"
         },
@@ -865,6 +868,9 @@
         },
         "oklch()": {
             "syntax": "<legacy-oklch-syntax> | <modern-oklch-syntax>"
+        },
+        "alpha()": {
+            "syntax": "alpha( [ from <color> ] [ / [ <alpha-value> | none ] ]? )"
         },
         "colorspace-params": {
             "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
