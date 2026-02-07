@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.6.9](https://github.com/eslint/csstree/compare/css-tree-v3.6.8...css-tree-v3.6.9) (2026-02-07)
+
+
+### Bug Fixes
+
+* add support for `alpha()` color function ([#107](https://github.com/eslint/csstree/issues/107)) ([b96f42b](https://github.com/eslint/csstree/commit/b96f42b746223a35abe78ee2cc020b57f80d3ec8))
+* allow declarations inside nested `[@layer](https://github.com/layer)` rules ([#108](https://github.com/eslint/csstree/issues/108)) ([a9a18dc](https://github.com/eslint/csstree/commit/a9a18dc7cb62cc9281070b2cd052296b9fc16c31))
+* correctly parse nested element selectors ([#104](https://github.com/eslint/csstree/issues/104)) ([82729c1](https://github.com/eslint/csstree/commit/82729c1b6612f3322be4ed5e3c3203a8558cc119))
+
 ## [3.6.8](https://github.com/eslint/csstree/compare/css-tree-v3.6.7...css-tree-v3.6.8) (2025-11-21)
 
 
