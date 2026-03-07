@@ -215,10 +215,6 @@
             "comment": "added old IE property https://msdn.microsoft.com/en-us/library/ms530723(v=vs.85).aspx",
             "syntax": "<url>+"
         },
-        "container-type": {
-            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-type",
-            "syntax": "normal || [ size | inline-size ]"
-        },
         "cue": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<'cue-before'> <'cue-after'>?"
@@ -264,9 +260,10 @@
         "fill-opacity": {
             "comment": "added SVG property",
             "references": [
+                "https://developer.mozilla.org/en-US/docs/Web/CSS/fill-opacity",
                 "https://www.w3.org/TR/SVG/painting.html#FillProperty"
             ],
-            "syntax": "<number-zero-one>"
+            "syntax": "<number-zero-one> | <percentage>"
         },
         "filter": {
             "comment": "extend with IE legacy syntaxes",
@@ -336,6 +333,14 @@
         },
         "overflow": {
             "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
+            "syntax": "| <-non-standard-overflow>"
+        },
+        "overflow-block": {
+            "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-block",
+            "syntax": "| <-non-standard-overflow>"
+        },
+        "overflow-inline": {
+            "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-inline",
             "syntax": "| <-non-standard-overflow>"
         },
         "overflow-x": {
@@ -571,6 +576,9 @@
         },
         "attr-fallback": {
             "syntax": "<any-value>"
+        },
+        "autospace": {
+            "syntax": "no-autospace | [ ideograph-alpha || ideograph-numeric || punctuation ] || [ insert | replace ]"
         },
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -917,6 +925,27 @@
             "references": [
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
+        },
+        "syntax": {
+            "syntax": "'*' | <syntax-component> [ <syntax-combinator> <syntax-component> ]* | <syntax-string>"
+        },
+        "syntax-component": {
+            "syntax": "<syntax-single-component> <syntax-multiplier>? | '<' transform-list '>'"
+        },
+        "syntax-single-component": {
+            "syntax": "'<' <syntax-type-name> '>' | <ident>"
+        },
+        "syntax-type-name": {
+            "syntax": "angle | color | custom-ident | image | integer | length | length-percentage | number | percentage | resolution | string | time | url | transform-function"
+        },
+        "syntax-combinator": {
+            "syntax": "'|'"
+        },
+        "syntax-multiplier": {
+            "syntax": "'#' | '+'"
+        },
+        "syntax-string": {
+            "syntax": "<string>"
         }
     }
 }
