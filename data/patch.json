@@ -151,7 +151,7 @@
             "comment": "webkit specific keywords",
             "references": [
                 "http://css-infos.net/property/-webkit-appearance"
-            ],
+                ],
             "syntax": "none | button | button-bevel | caps-lock-indicator | caret | checkbox | default-button | inner-spin-button | listbox | listitem | media-controls-background | media-controls-fullscreen-background | media-current-time-display | media-enter-fullscreen-button | media-exit-fullscreen-button | media-fullscreen-button | media-mute-button | media-overlay-play-button | media-play-button | media-seek-back-button | media-seek-forward-button | media-slider | media-sliderthumb | media-time-remaining-display | media-toggle-closed-captions-button | media-volume-slider | media-volume-slider-container | media-volume-sliderthumb | menulist | menulist-button | menulist-text | menulist-textfield | meter | progress-bar | progress-bar-value | push-button | radio | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbargripper-horizontal | scrollbargripper-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbartrack-horizontal | scrollbartrack-vertical | searchfield | searchfield-cancel-button | searchfield-decoration | searchfield-results-button | searchfield-results-decoration | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | square-button | textarea | textfield | -apple-pay-button"
         },
         "-webkit-background-clip": {
@@ -235,7 +235,7 @@
             "comment": "added legacy keywords: hand, -webkit-grab. -webkit-grabbing, -webkit-zoom-in, -webkit-zoom-out, -moz-grab, -moz-grabbing, -moz-zoom-in, -moz-zoom-out",
             "references": [
                 "https://www.sitepoint.com/css3-cursor-styles/"
-            ],
+                ],
             "syntax": "[ [ <url> [ <x> <y> ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing | hand | -webkit-grab | -webkit-grabbing | -webkit-zoom-in | -webkit-zoom-out | -moz-grab | -moz-grabbing | -moz-zoom-in | -moz-zoom-out ] ]"
         },
         "display": {
@@ -572,6 +572,12 @@
         "attr-fallback": {
             "syntax": "<any-value>"
         },
+        "attr-unit": {
+            "syntax": "'%' | cm | mm | q | in | pt | pc | px | em | rem | ex | rex | cap | rcap | ch | rch | ic | ric | lh | rlh | vw | svw | lvw | dvw | vh | svh | lvh | dvh | vi | svi | lvi | dvi | vb | svb | lvb | dvb | vmin | svmin | lvmin | dvmin | vmax | svmax | lvmax | dvmax | cqw | cqh | cqi | cqb | cqmin | cqmax | deg | grad | rad | turn | s | ms | hz | khz | dpi | dpcm | dppx | x | fr | db | st"
+        },
+        "autospace": {
+            "syntax": "no-autospace | [ ideograph-alpha || ideograph-numeric || punctuation ] || [ insert | replace ]"
+        },
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -725,7 +731,7 @@
             "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
             "references": [
                 "https://www.w3.org/TR/SVG11/coords.html#Units"
-            ],
+                ],
             "syntax": "<percentage> | <length> | <number>"
         },
         "svg-writing-mode": {
@@ -917,6 +923,27 @@
             "references": [
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
+        },
+        "syntax": {
+            "syntax": "'*' | <syntax-component> [ <syntax-combinator> <syntax-component> ]* | <syntax-string>"
+        },
+        "syntax-combinator": {
+            "syntax": "'|'"
+        },
+        "syntax-component": {
+            "syntax": "<syntax-single-component> <syntax-multiplier>? | '<' transform-list '>'"
+        },
+        "syntax-multiplier": {
+            "syntax": "'#' | '+'"
+        },
+        "syntax-single-component": {
+            "syntax": "'<' <syntax-type-name> '>' | <ident>"
+        },
+        "syntax-string": {
+            "syntax": "<string>"
+        },
+        "syntax-type-name": {
+            "syntax": "angle | color | custom-ident | image | integer | length | length-percentage | number | percentage | resolution | string | time | url | transform-function"
         }
     }
 }
