@@ -572,6 +572,12 @@
         "attr-fallback": {
             "syntax": "<any-value>"
         },
+        "attr-unit": {
+            "syntax": "'%' | cm | mm | q | in | pt | pc | px | em | rem | ex | rex | cap | rcap | ch | rch | ic | ric | lh | rlh | vw | svw | lvw | dvw | vh | svh | lvh | dvh | vi | svi | lvi | dvi | vb | svb | lvb | dvb | vmin | svmin | lvmin | dvmin | vmax | svmax | lvmax | dvmax | cqw | cqh | cqi | cqb | cqmin | cqmax | deg | grad | rad | turn | s | ms | hz | khz | dpi | dpcm | dppx | x | fr | db | st"
+        },
+        "autospace": {
+            "syntax": "no-autospace | [ ideograph-alpha || ideograph-numeric || punctuation ] || [ insert | replace ]"
+        },
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -917,6 +923,27 @@
             "references": [
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
+        },
+        "syntax": {
+            "syntax": "'*' | <syntax-component> [ <syntax-combinator> <syntax-component> ]* | <syntax-string>"
+        },
+        "syntax-combinator": {
+            "syntax": "'|'"
+        },
+        "syntax-component": {
+            "syntax": "<syntax-single-component> <syntax-multiplier>? | '<' transform-list '>'"
+        },
+        "syntax-multiplier": {
+            "syntax": "'#' | '+'"
+        },
+        "syntax-single-component": {
+            "syntax": "'<' <syntax-type-name> '>' | <ident>"
+        },
+        "syntax-string": {
+            "syntax": "<string>"
+        },
+        "syntax-type-name": {
+            "syntax": "angle | color | custom-ident | image | integer | length | length-percentage | number | percentage | resolution | string | time | url | transform-function"
         }
     }
 }
