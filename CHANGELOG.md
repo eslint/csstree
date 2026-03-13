@@ -1,14 +1,197 @@
-## 3.2.1 (March 5, 2026)
+# Changelog
 
-- Fixed parsing of nested function in a group in definition syntax (#358)
+## [3.6.9](https://github.com/eslint/csstree/compare/css-tree-v3.6.8...css-tree-v3.6.9) (2026-02-07)
 
-## 3.2.0 (March 4, 2026)
 
-- Added `"sideEffects": false` in `package.json`
-- Added `list` option to the `parse()` method to specify whether the parser should produce a `List` (by default, `list: true`) or an array (`list: false`) for node's children (e.g., `SelectorList`, `Block`, etc.)
-- Added support for [Functional Notation](https://www.w3.org/TR/css-values-4/#component-functions) in definition syntax (for now by wrapping function arguments into an implicit group when necessary, see #292)
-- Added support for stacked multipliers `{A}?` and `{A,B}?` according to spec in definition syntax parsing (#346)
-- Added math functions support in syntax matching (e.g., `min()`, `max()`, etc.) (#344)
+### Bug Fixes
+
+* add support for `alpha()` color function ([#107](https://github.com/eslint/csstree/issues/107)) ([b96f42b](https://github.com/eslint/csstree/commit/b96f42b746223a35abe78ee2cc020b57f80d3ec8))
+* allow declarations inside nested `[@layer](https://github.com/layer)` rules ([#108](https://github.com/eslint/csstree/issues/108)) ([a9a18dc](https://github.com/eslint/csstree/commit/a9a18dc7cb62cc9281070b2cd052296b9fc16c31))
+* correctly parse nested element selectors ([#104](https://github.com/eslint/csstree/issues/104)) ([82729c1](https://github.com/eslint/csstree/commit/82729c1b6612f3322be4ed5e3c3203a8558cc119))
+
+## [3.6.8](https://github.com/eslint/csstree/compare/css-tree-v3.6.7...css-tree-v3.6.8) (2025-11-21)
+
+
+### Bug Fixes
+
+* comma-separated declaration values parsed as Raw nodes ([#101](https://github.com/eslint/csstree/issues/101)) ([cb97ead](https://github.com/eslint/csstree/commit/cb97eadaed5297c314df117384f12f6815c4cdfe))
+
+## [3.6.7](https://github.com/eslint/csstree/compare/css-tree-v3.6.6...css-tree-v3.6.7) (2025-11-18)
+
+
+### Bug Fixes
+
+* browser hack property parsing and invalid selector validation ([#98](https://github.com/eslint/csstree/issues/98)) ([2f5781c](https://github.com/eslint/csstree/commit/2f5781cf6e746f213179d3a846bf3d5c176db827))
+* nested element selector parsing in DeclarationList context ([#85](https://github.com/eslint/csstree/issues/85)) ([f6222c9](https://github.com/eslint/csstree/commit/f6222c97776d004a4d917276459808ef65c0a519))
+
+## [3.6.6](https://github.com/eslint/csstree/compare/css-tree-v3.6.5...css-tree-v3.6.6) (2025-10-02)
+
+
+### Bug Fixes
+
+* add support for relative color values ([#87](https://github.com/eslint/csstree/issues/87)) ([486c559](https://github.com/eslint/csstree/commit/486c559ff4e9bed5c8f8b31f08396ca0737c8f78))
+* allow relative color syntax for rgb() & rgba() ([#80](https://github.com/eslint/csstree/issues/80)) ([a08c7ab](https://github.com/eslint/csstree/commit/a08c7ab7496ac653fc1c510d99e67d633a5f3139))
+
+## [3.6.5](https://github.com/eslint/csstree/compare/css-tree-v3.6.4...css-tree-v3.6.5) (2025-08-25)
+
+
+### Bug Fixes
+
+* Allow nested at-rules to have nested rules ([#77](https://github.com/eslint/csstree/issues/77)) ([c166f2d](https://github.com/eslint/csstree/commit/c166f2d43006d2ed96ca777a278c125f9243ed89))
+
+## [3.6.4](https://github.com/eslint/csstree/compare/css-tree-v3.6.3...css-tree-v3.6.4) (2025-08-17)
+
+
+### Bug Fixes
+
+* Correct [@font-feature-values](https://github.com/font-feature-values) nested at-rules structure ([#69](https://github.com/eslint/csstree/issues/69)) ([fb1c8e0](https://github.com/eslint/csstree/commit/fb1c8e0f668e14591b68ac522f92fcc43a60140d))
+* Increase iteration limit ([#74](https://github.com/eslint/csstree/issues/74)) ([8c4813d](https://github.com/eslint/csstree/commit/8c4813d76d487236f6ae1dfd5974fe88b676d1fc))
+
+## [3.6.3](https://github.com/eslint/csstree/compare/css-tree-v3.6.2...css-tree-v3.6.3) (2025-07-29)
+
+
+### Bug Fixes
+
+* expand nested CSS combinator selectors support in block parsing ([#64](https://github.com/eslint/csstree/issues/64)) ([94249a2](https://github.com/eslint/csstree/commit/94249a24949cd0755ba7e415f6d655ddbeea2bac))
+
+## [3.6.2](https://github.com/eslint/csstree/compare/css-tree-v3.6.1...css-tree-v3.6.2) (2025-07-21)
+
+
+### Bug Fixes
+
+* Revert "Remove outdated `@font-face/unicode-range`" ([#61](https://github.com/eslint/csstree/issues/61)) ([4aad29d](https://github.com/eslint/csstree/commit/4aad29d7fd29f15e5ff981667b14cab054003060))
+
+## [3.6.1](https://github.com/eslint/csstree/compare/css-tree-v3.6.0...css-tree-v3.6.1) (2025-06-09)
+
+
+### Bug Fixes
+
+* ParserContext to have all methods ([e069f6f](https://github.com/eslint/csstree/commit/e069f6f50e64bb1728208e845498561fa5afe287))
+* ParserContext type to have all methods ([#57](https://github.com/eslint/csstree/issues/57)) ([e069f6f](https://github.com/eslint/csstree/commit/e069f6f50e64bb1728208e845498561fa5afe287))
+* Types for node generate() function ([#56](https://github.com/eslint/csstree/issues/56)) ([846120b](https://github.com/eslint/csstree/commit/846120b5a0e64b6e7b8105ddef904a07b93e5c8b))
+
+## [3.6.0](https://github.com/eslint/csstree/compare/css-tree-v3.5.4...css-tree-v3.6.0) (2025-06-05)
+
+
+### Features
+
+* Add support for math functions ([#53](https://github.com/eslint/csstree/issues/53)) ([b7c4915](https://github.com/eslint/csstree/commit/b7c491587de974630bcde75034e3cb55a2edbeca))
+* Parse nested element selector ([#51](https://github.com/eslint/csstree/issues/51)) ([ed3ae55](https://github.com/eslint/csstree/commit/ed3ae5503e0d92facaf8d0a81d60b2e35af6c891))
+
+
+### Bug Fixes
+
+* isDelim() type ([#55](https://github.com/eslint/csstree/issues/55)) ([9605092](https://github.com/eslint/csstree/commit/9605092a76cd7620ad49f1747d6086dd9021fd5a))
+* Update MDN data and patch ([#54](https://github.com/eslint/csstree/issues/54)) ([8a707a7](https://github.com/eslint/csstree/commit/8a707a7519ea50f64a68cd77bff1dac678e59326))
+
+## [3.5.4](https://github.com/eslint/csstree/compare/css-tree-v3.5.3...css-tree-v3.5.4) (2025-05-28)
+
+
+### Bug Fixes
+
+* Types for atrule parsing ([#49](https://github.com/eslint/csstree/issues/49)) ([7194e95](https://github.com/eslint/csstree/commit/7194e958521ffb43cd25ba82645a9ba0f3ec875b))
+
+## [3.5.3](https://github.com/eslint/csstree/compare/css-tree-v3.5.2...css-tree-v3.5.3) (2025-05-23)
+
+
+### Bug Fixes
+
+* Types for custom nodes and scopes ([#47](https://github.com/eslint/csstree/issues/47)) ([3a663e1](https://github.com/eslint/csstree/commit/3a663e1e94a65b1bc2da4b2cdb052700988efcc4))
+
+## [3.5.2](https://github.com/eslint/csstree/compare/css-tree-v3.5.1...css-tree-v3.5.2) (2025-05-15)
+
+
+### Bug Fixes
+
+* Types for default-syntax-data and nodes ([#44](https://github.com/eslint/csstree/issues/44)) ([2edbf80](https://github.com/eslint/csstree/commit/2edbf80347b08999197e2dc696aebf1bdcf61b8c))
+
+## [3.5.1](https://github.com/eslint/csstree/compare/css-tree-v3.5.0...css-tree-v3.5.1) (2025-05-08)
+
+
+### Bug Fixes
+
+* Add missing &lt;parenthesis-block&gt; type ([#42](https://github.com/eslint/csstree/issues/42)) ([1695a47](https://github.com/eslint/csstree/commit/1695a4743bd452438612ab04d7738dc703eb1263))
+* Types for NodeSyntaxConfig ([#41](https://github.com/eslint/csstree/issues/41)) ([d7dc09d](https://github.com/eslint/csstree/commit/d7dc09d3d2fda0e34e3573a2c009ee48da8c89ec))
+
+## [3.5.0](https://github.com/eslint/csstree/compare/css-tree-v3.4.0...css-tree-v3.5.0) (2025-04-22)
+
+
+### Features
+
+* Add support for most CSS nesting rules ([#37](https://github.com/eslint/csstree/issues/37)) ([9d6b65f](https://github.com/eslint/csstree/commit/9d6b65fd1d6d975f188de27d41df83a82c4d7cc2))
+* Nested selector support ([9d6b65f](https://github.com/eslint/csstree/commit/9d6b65fd1d6d975f188de27d41df83a82c4d7cc2))
+
+## [3.4.0](https://github.com/eslint/csstree/compare/css-tree-v3.3.4...css-tree-v3.4.0) (2025-04-16)
+
+
+### Features
+
+* Customize tokenize function via the fork API ([#36](https://github.com/eslint/csstree/issues/36)) ([e62301c](https://github.com/eslint/csstree/commit/e62301cdb67dc7813870712e7302c5d1e00af968))
+
+
+### Bug Fixes
+
+* Types for Node definitions ([#34](https://github.com/eslint/csstree/issues/34)) ([e553a25](https://github.com/eslint/csstree/commit/e553a25b9ea0562ef75b46583e9375ef307a8318))
+
+## [3.3.4](https://github.com/eslint/csstree/compare/css-tree-v3.3.3...css-tree-v3.3.4) (2025-04-09)
+
+
+### Bug Fixes
+
+* Remove outdated `anchor()` & `anchor-size()` descriptor patch ([afd673a](https://github.com/eslint/csstree/commit/afd673ad211653084b3d44935c42b972b911de12))
+* Remove outdated `anchor()` & `anchor-size()` function patch ([#29](https://github.com/eslint/csstree/issues/29)) ([afd673a](https://github.com/eslint/csstree/commit/afd673ad211653084b3d44935c42b972b911de12))
+* Update mdn-data and patch ([#32](https://github.com/eslint/csstree/issues/32)) ([20b412f](https://github.com/eslint/csstree/commit/20b412f1692bd98dcadd732d62c4799882bced73))
+
+## [3.3.3](https://github.com/eslint/csstree/compare/css-tree-v3.3.2...css-tree-v3.3.3) (2025-04-04)
+
+
+### Bug Fixes
+
+* Add patch for &lt;cubic-bezier-easing-function&gt; ([#28](https://github.com/eslint/csstree/issues/28)) ([c4d6c44](https://github.com/eslint/csstree/commit/c4d6c44931114edfbbacf1de8b26288d15cf9e48)), closes [#27](https://github.com/eslint/csstree/issues/27)
+* Remove `src` descriptor patch ([#23](https://github.com/eslint/csstree/issues/23)) ([e3d17f0](https://github.com/eslint/csstree/commit/e3d17f0fc4e1c29df8d80985fbc8a7f9d8c78e2b))
+* Remove `unicode-range` descriptor patch ([#25](https://github.com/eslint/csstree/issues/25)) ([2048240](https://github.com/eslint/csstree/commit/2048240bd3811a7fb4f7bbbc18c73e7064196e4e))
+* Remove outdated `@font-face/unicode-range` descriptor patch ([#26](https://github.com/eslint/csstree/issues/26)) ([1ea54f7](https://github.com/eslint/csstree/commit/1ea54f7f6c1477c5a9cbae3a233061c85e336f8f))
+* Remove wrong `scroll-timeline` property patch ([#22](https://github.com/eslint/csstree/issues/22)) ([b142b20](https://github.com/eslint/csstree/commit/b142b205c0d2d73c5ef27799a35ade92dc271ef7))
+* Remove wrong scroll-timeline property patch ([b142b20](https://github.com/eslint/csstree/commit/b142b205c0d2d73c5ef27799a35ade92dc271ef7))
+
+## [3.3.2](https://github.com/eslint/csstree/compare/css-tree-v3.3.1...css-tree-v3.3.2) (2025-03-29)
+
+
+### Bug Fixes
+
+* Add missing node types and update other types ([#18](https://github.com/eslint/csstree/issues/18)) ([37a6dd4](https://github.com/eslint/csstree/commit/37a6dd47ca30b626852f6cb61b5f7a4744da2e71))
+
+## [3.3.1](https://github.com/eslint/csstree/compare/css-tree-v3.3.0...css-tree-v3.3.1) (2025-03-20)
+
+
+### Bug Fixes
+
+* SyntaxParseError type ([#15](https://github.com/eslint/csstree/issues/15)) ([d95706e](https://github.com/eslint/csstree/commit/d95706e95b2ef8cbfd27211a753adf73381c643f))
+
+## [3.3.0](https://github.com/eslint/csstree/compare/css-tree-v3.2.0...css-tree-v3.3.0) (2025-03-18)
+
+
+### Features
+
+* add support for typed custom properties ([0e9d141](https://github.com/eslint/csstree/commit/0e9d14129a108f79bc4c772ee0cc4f1812070215))
+* Add support for typed custom properties ([#11](https://github.com/eslint/csstree/issues/11)) ([0e9d141](https://github.com/eslint/csstree/commit/0e9d14129a108f79bc4c772ee0cc4f1812070215))
+* passthrough env in lexer syntax matching ([c0e22c0](https://github.com/eslint/csstree/commit/c0e22c0e7c042a60764a51a519b53f18a8ceae62))
+* passthrough env() in lexer syntax matching ([#12](https://github.com/eslint/csstree/issues/12)) ([c0e22c0](https://github.com/eslint/csstree/commit/c0e22c0e7c042a60764a51a519b53f18a8ceae62))
+
+
+### Bug Fixes
+
+* Add parse.SyntaxError and parse.config types ([#14](https://github.com/eslint/csstree/issues/14)) ([d201786](https://github.com/eslint/csstree/commit/d20178613d5b4d6bf6dce36f94cbb04b0eddfe59))
+* Add types for onToken callback ([#9](https://github.com/eslint/csstree/issues/9)) ([b403ffb](https://github.com/eslint/csstree/commit/b403ffb6085d5e8c481f62026d88eebd632a3cb5))
+
+## [3.2.0](https://github.com/eslint/csstree/compare/css-tree-v3.1.0...css-tree-v3.2.0) (2025-03-12)
+
+
+### Features
+
+* Add type definitions ([#4](https://github.com/eslint/csstree/issues/4)) ([e407bae](https://github.com/eslint/csstree/commit/e407bae294cdec1f987fac94b75b7ca7f749c229))
+* Rename to @eslint/css-tree ([#1](https://github.com/eslint/csstree/issues/1)) ([6f20a43](https://github.com/eslint/csstree/commit/6f20a4328e323cc0d40dd9407908171a54fac0c0))
+
 - Added `onToken` option to the `parse()` method, which can be either an array or a function:
     - When the value is an array, it is populated with objects `{ type, start, end }` (token type, and its start and end offsets).
     - When the value is a function, it accepts `type`, `start`, `end`, and `index` parameters, and is invoked with a token API as `this`, enabling advanced token handling (see [onToken](docs/parsing.md#ontoken)). For example, the following demonstrates checking if all block tokens have matching pairs:
@@ -33,16 +216,19 @@
     - `isBlockOpenerTokenType(tokenType)` – returns `true` for `<function-token>`, `<(-token>`, `<[-token>`, and `<{-token>`
     - `isBlockCloserTokenType(tokenType)` – returns `true` for `<)-token>`, `<]-token>`, and `<}-token>`
     - `getBlockTokenPairIndex(tokenIndex)` – returns the index of the pair token for a block, or `-1` if no pair exists
-- Changed `generate()` to not auto insert whitespaces between tokens for raw values (#356)
 - Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
-- Bumped `mdn/data` to 2.27.1 and various fixes in syntaxes
+
+
+### Bug Fixes
+
+* Update CSS syntax ([#8](https://github.com/eslint/csstree/issues/8)) ([ff07c1e](https://github.com/eslint/csstree/commit/ff07c1e8ce1989f1c94cbb9ae44e3c8feee1de9e))
 
 ## 3.1.0 (December 6, 2024)
 
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
 - Added `source`, `startOffset`, `startLine`, and `startColumn` parameters to `OffsetToLocation` constructor, eliminating the need to call `setSource()` after creating a new `OffsetToLocation` instance
 - Exposed `OffsetToLocation` class in the main entry point, which was previously accessible only via `css-tree/tokenizer`
-- Fixed `Raw` node value consumption by ignoring stop tokens inside blocks, resolving an issue where `Raw` value consumption stopped prematurely. This fix also enables parsing of functions whose content includes stop characters (e.g., semicolons and curly braces) within declaration values, aligning with the latest draft of CSS Values and Units Module Level 5.  
+- Fixed `Raw` node value consumption by ignoring stop tokens inside blocks, resolving an issue where `Raw` value consumption stopped prematurely. This fix also enables parsing of functions whose content includes stop characters (e.g., semicolons and curly braces) within declaration values, aligning with the latest draft of CSS Values and Units Module Level 5.
 - Fixed `TokenStream#balance` computation to handle unmatched brackets correctly. Previously, when encountering a closing bracket, the `TokenStream` would prioritize it over unmatched opening brackets, leading to improper parsing. For example, the parser would incorrectly consume the declaration value of `.a { prop: ([{); }` as `([{)` instead of consuming it until all opened brackets were closed (`([{); }`). Now, unmatched closing brackets are discarded unless they match the most recent opening bracket on the stack. This change aligns CSSTree with CSS specifications and browser behavior.
 - Fixed syntax definition parser to allow a token to be followed by a multiplier (#303)
 - Fixed location for `Layer` node (#310)
