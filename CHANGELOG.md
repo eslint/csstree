@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.0.0](https://github.com/eslint/csstree/compare/css-tree-v3.6.9...css-tree-v4.0.0) (2026-03-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* Require Node.js ^20.19.0 || ^22.13.0 || >=24 ([#121](https://github.com/eslint/csstree/issues/121))
+
+### Features
+
+* Require Node.js ^20.19.0 || ^22.13.0 || &gt;=24 ([#121](https://github.com/eslint/csstree/issues/121)) ([92e2933](https://github.com/eslint/csstree/commit/92e293358c30dc33c79a28f2f6a3f29bcd66ea8b))
+
+
+### Bug Fixes
+
+* sync with upstream csstree v3.2.1 ([#125](https://github.com/eslint/csstree/issues/125)) ([b3f6484](https://github.com/eslint/csstree/commit/b3f648454468193c2f697ebebce19bf87b928de1))
+* update mdn-data ([#127](https://github.com/eslint/csstree/issues/127)) ([cca018f](https://github.com/eslint/csstree/commit/cca018f49338e860cfcafc7bfff9f4efd18cbff5))
+
 ## [3.6.9](https://github.com/eslint/csstree/compare/css-tree-v3.6.8...css-tree-v3.6.9) (2026-02-07)
 
 
