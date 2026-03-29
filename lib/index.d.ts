@@ -2974,11 +2974,11 @@ interface LexerUnits {
 /**
  * Describes a syntax rule or definition.
  */
-type SyntaxDescriptor<Type extends SyntaxDescriptorType = SyntaxDescriptorType> = {
+type SyntaxDescriptor<Kind extends SyntaxDescriptorType = SyntaxDescriptorType> = {
     /**
      * The type of the syntax descriptor (e.g., "Type", "Property").
      */
-    type: Type;
+    type: Kind;
 
     /**
      * The name of the syntax descriptor.
@@ -3014,7 +3014,7 @@ type SyntaxDescriptor<Type extends SyntaxDescriptorType = SyntaxDescriptorType> 
 /**
  * An at-rule definition exposed through `Lexer#atrules`.
  */
-type LexerAtruleDefinition = {
+interface LexerAtruleDefinition {
     /**
      * Discriminator for at-rule entries.
      */
@@ -3034,7 +3034,7 @@ type LexerAtruleDefinition = {
      * At-rule descriptors keyed by descriptor name, if any.
      */
     descriptors: Record<string, SyntaxDescriptor<"AtruleDescriptor"> | undefined> | null;
-};
+}
 
 /**
  * Represents a fragment match, including its parent list and nodes.
