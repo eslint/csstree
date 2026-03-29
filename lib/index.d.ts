@@ -2922,13 +2922,63 @@ interface SyntaxMatchGraph {
 }
 
 /**
+ * Kinds of syntax descriptors created by the lexer.
+ */
+type SyntaxDescriptorType = "AtruleDescriptor" | "AtrulePrelude" | "Property" | "Type";
+
+/**
+ * The built-in unit groups stored on a `Lexer` instance.
+ */
+interface LexerUnits {
+    /**
+     * Length units such as `px`, `em`, and `vh`.
+     */
+    length: string[];
+
+    /**
+     * Angle units such as `deg` and `rad`.
+     */
+    angle: string[];
+
+    /**
+     * Time units such as `s` and `ms`.
+     */
+    time: string[];
+
+    /**
+     * Frequency units such as `hz` and `khz`.
+     */
+    frequency: string[];
+
+    /**
+     * Resolution units such as `dpi` and `dppx`.
+     */
+    resolution: string[];
+
+    /**
+     * Flex units such as `fr`.
+     */
+    flex: string[];
+
+    /**
+     * Volume-related decibel units.
+     */
+    decibel: string[];
+
+    /**
+     * Pitch-related semitone units.
+     */
+    semitones: string[];
+}
+
+/**
  * Describes a syntax rule or definition.
  */
-type SyntaxDescriptor = {
+type SyntaxDescriptor<Kind extends SyntaxDescriptorType = SyntaxDescriptorType> = {
     /**
      * The type of the syntax descriptor (e.g., "Type", "Property").
      */
-    type: string;
+    type: Kind;
 
     /**
      * The name of the syntax descriptor.
@@ -2946,9 +2996,9 @@ type SyntaxDescriptor = {
     serializable: boolean;
 
     /**
-     * The syntax object associated with the descriptor.
+     * The parsed definition-syntax AST, or `null` for function-backed descriptors.
      */
-    syntax: Syntax;
+    syntax: DSNode | null;
 
     /**
      * The graph of syntax matches for this descriptor, or `null` if none exists.
@@ -2958,8 +3008,33 @@ type SyntaxDescriptor = {
     /**
      * A reference to a graph of syntax matches, or `null` if none exists.
      */
-    matchRef?: SyntaxMatchGraph | null;
+    matchRef: SyntaxMatchGraph | null;
 };
+
+/**
+ * An at-rule definition exposed through `Lexer#atrules`.
+ */
+interface LexerAtruleDefinition {
+    /**
+     * Discriminator for at-rule entries.
+     */
+    type: "Atrule";
+
+    /**
+     * The at-rule name.
+     */
+    name: string;
+
+    /**
+     * The descriptor for the at-rule prelude, if one exists.
+     */
+    prelude: SyntaxDescriptor<"AtrulePrelude"> | null;
+
+    /**
+     * At-rule descriptors keyed by descriptor name, if any.
+     */
+    descriptors: Record<string, SyntaxDescriptor<"AtruleDescriptor"> | undefined> | null;
+}
 
 /**
  * Represents a fragment match, including its parent list and nodes.
@@ -2996,6 +3071,46 @@ type LexerValidationResult = {
  * It provides utilities for handling at-rules, properties, types, and general syntax.
  */
 export class Lexer {
+    /**
+     * CSS-wide keywords accepted by the lexer.
+     */
+    cssWideKeywords: string[];
+
+    /**
+     * The associated `Syntax` instance, if the lexer was created from one.
+     */
+    syntax: Syntax | undefined;
+
+    /**
+     * Whether generic types are enabled for this lexer.
+     */
+    generic: boolean;
+
+    /**
+     * Known CSS units grouped by unit family.
+     */
+    units: LexerUnits;
+
+    /**
+     * Known at-rule definitions keyed by at-rule name.
+     */
+    atrules: Record<string, LexerAtruleDefinition | undefined>;
+
+    /**
+     * Known property definitions keyed by property name.
+     */
+    properties: Record<string, SyntaxDescriptor<"Property"> | undefined>;
+
+    /**
+     * Known type definitions keyed by type name.
+     */
+    types: Record<string, SyntaxDescriptor<"Type"> | undefined>;
+
+    /**
+     * Node structure validators used by `checkStructure()`.
+     */
+    structure: Structure;
+
     /**
      * Creates a new `Lexer` instance.
      *
@@ -3147,13 +3262,13 @@ export class Lexer {
     findAllFragments(ast: AnyCssNode, type: string, name: string): FragmentMatch[];
 
     /**
-     * Retrieves the syntax descriptor for an at-rule.
+     * Retrieves the definition for an at-rule.
      *
      * @param atruleName - The name of the at-rule.
      * @param fallbackBasename - (Optional) Whether to use a fallback basename.
-     * @returns The syntax descriptor or `null` if not found.
+     * @returns The at-rule definition or `null` if not found.
      */
-    getAtrule(atruleName: string, fallbackBasename?: boolean): SyntaxDescriptor | null;
+    getAtrule(atruleName: string, fallbackBasename?: boolean): LexerAtruleDefinition | null;
 
     /**
      * Retrieves the prelude descriptor for an at-rule.
@@ -3162,7 +3277,7 @@ export class Lexer {
      * @param fallbackBasename - (Optional) Whether to use a fallback basename.
      * @returns The syntax descriptor or `null` if not found.
      */
-    getAtrulePrelude(atruleName: string, fallbackBasename?: boolean): SyntaxDescriptor | null;
+    getAtrulePrelude(atruleName: string, fallbackBasename?: boolean): SyntaxDescriptor<"AtrulePrelude"> | null;
 
     /**
      * Retrieves the descriptor for an at-rule's property.
@@ -3171,7 +3286,7 @@ export class Lexer {
      * @param name - The property name.
      * @returns The syntax descriptor or `null` if not found.
      */
-    getAtruleDescriptor(atruleName: string, name: string): SyntaxDescriptor | null;
+    getAtruleDescriptor(atruleName: string, name: string): SyntaxDescriptor<"AtruleDescriptor"> | null;
 
     /**
      * Retrieves the syntax descriptor for a property.
@@ -3180,7 +3295,7 @@ export class Lexer {
      * @param fallbackBasename - (Optional) Whether to use a fallback basename.
      * @returns The syntax descriptor or `null` if not found.
      */
-    getProperty(propertyName: string, fallbackBasename?: boolean): SyntaxDescriptor | null;
+    getProperty(propertyName: string, fallbackBasename?: boolean): SyntaxDescriptor<"Property"> | null;
 
     /**
      * Retrieves the syntax descriptor for a type.
@@ -3188,7 +3303,7 @@ export class Lexer {
      * @param name - The name of the type.
      * @returns The syntax descriptor or `null` if not found.
      */
-    getType(name: string): SyntaxDescriptor | null;
+    getType(name: string): SyntaxDescriptor<"Type"> | null;
 
     /**
      * Validates the syntax rules and properties.
