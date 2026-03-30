@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.0.1](https://github.com/eslint/csstree/compare/css-tree-v4.0.0...css-tree-v4.0.1) (2026-03-30)
+
+
+### Bug Fixes
+
+* correct Lexer#getAtruleDescriptor lookup ([#129](https://github.com/eslint/csstree/issues/129)) ([a42e535](https://github.com/eslint/csstree/commit/a42e535dc9f2c9e8a6b92ae19c4eb540f886e5e1))
+* improve Lexer typings ([#128](https://github.com/eslint/csstree/issues/128)) ([918488a](https://github.com/eslint/csstree/commit/918488aafae6291e807051346a42c95c985ed7de))
+
 ## [4.0.0](https://github.com/eslint/csstree/compare/css-tree-v3.6.9...css-tree-v4.0.0) (2026-03-23)
 
 
