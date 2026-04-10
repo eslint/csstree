@@ -112,6 +112,26 @@ const propertyMatch = lexer.matchProperty('color', 'red');
 console.log(propertyMatch.matched?.type);
 console.log(propertyMatch.isType(ast, 'color'));
 
+lexer.cssWideKeywords satisfies string[];
+lexer.generic satisfies boolean;
+lexer.units.length satisfies string[];
+lexer.units.angle satisfies string[];
+lexer.units.time satisfies string[];
+lexer.units.frequency satisfies string[];
+lexer.units.resolution satisfies string[];
+lexer.units.flex satisfies string[];
+lexer.units.decibel satisfies string[];
+lexer.units.semitones satisfies string[];
+lexer.atrules.media?.type satisfies "Atrule" | undefined;
+lexer.atrules.media?.prelude?.type satisfies "AtrulePrelude" | undefined;
+lexer.atrules.media?.prelude?.syntax?.type satisfies string | undefined;
+lexer.properties.color?.type satisfies "Property" | undefined;
+lexer.properties.color?.syntax?.type satisfies string | undefined;
+lexer.types.length?.type satisfies "Type" | undefined;
+lexer.types.length?.syntax?.type satisfies string | undefined;
+lexer.syntax?.walk(ast, () => {});
+lexer.structure satisfies csstree.Lexer["structure"];
+
 // Value fragment finding
 const fragments = lexer.findValueFragments('border', {
     type: 'Value',

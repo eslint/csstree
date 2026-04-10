@@ -264,9 +264,10 @@
         "fill-opacity": {
             "comment": "added SVG property",
             "references": [
+                "https://developer.mozilla.org/en-US/docs/Web/CSS/fill-opacity",
                 "https://www.w3.org/TR/SVG/painting.html#FillProperty"
             ],
-            "syntax": "<number-zero-one>"
+            "syntax": "<number-zero-one> | <percentage>"
         },
         "filter": {
             "comment": "extend with IE legacy syntaxes",
@@ -344,6 +345,14 @@
         },
         "overflow-y": {
             "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y",
+            "syntax": "| <-non-standard-overflow>"
+        },
+        "overflow-block": {
+            "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y",
+            "syntax": "| <-non-standard-overflow>"
+        },
+        "overflow-inline": {
+            "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x",
             "syntax": "| <-non-standard-overflow>"
         },
         "pause": {
@@ -927,23 +936,23 @@
         "syntax": {
             "syntax": "'*' | <syntax-component> [ <syntax-combinator> <syntax-component> ]* | <syntax-string>"
         },
-        "syntax-combinator": {
-            "syntax": "'|'"
-        },
         "syntax-component": {
             "syntax": "<syntax-single-component> <syntax-multiplier>? | '<' transform-list '>'"
-        },
-        "syntax-multiplier": {
-            "syntax": "'#' | '+'"
         },
         "syntax-single-component": {
             "syntax": "'<' <syntax-type-name> '>' | <ident>"
         },
-        "syntax-string": {
-            "syntax": "<string>"
-        },
         "syntax-type-name": {
             "syntax": "angle | color | custom-ident | image | integer | length | length-percentage | number | percentage | resolution | string | time | url | transform-function"
+        },
+        "syntax-combinator": {
+            "syntax": "'|'"
+        },
+        "syntax-multiplier": {
+            "syntax": "'#' | '+'"
+        },
+        "syntax-string": {
+            "syntax": "<string>"
         }
     }
 }
