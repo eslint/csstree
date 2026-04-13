@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.2](https://github.com/eslint/csstree/compare/css-tree-v4.0.1...css-tree-v4.0.2) (2026-04-13)
+
+
+### Bug Fixes
+
+* add missing syntax definitions for mdn-data ([#120](https://github.com/eslint/csstree/issues/120)) ([86ca9f6](https://github.com/eslint/csstree/commit/86ca9f64100ad5a3181161051accbe33b145f49d))
+
 ## [4.0.1](https://github.com/eslint/csstree/compare/css-tree-v4.0.0...css-tree-v4.0.1) (2026-03-30)
 
 
