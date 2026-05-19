@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.4](https://github.com/eslint/csstree/compare/css-tree-v4.0.3...css-tree-v4.0.4) (2026-05-19)
+
+
+### Bug Fixes
+
+* update mdn-data ([#136](https://github.com/eslint/csstree/issues/136)) ([70e181c](https://github.com/eslint/csstree/commit/70e181c5187257a4988107c1b2a47b5a787646f8))
+
 ## [4.0.3](https://github.com/eslint/csstree/compare/css-tree-v4.0.2...css-tree-v4.0.3) (2026-04-30)
 
 
