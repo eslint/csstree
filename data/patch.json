@@ -21,6 +21,15 @@
                 "font-display": "auto | block | swap | fallback | optional"
             }
         },
+        "page": {
+            "descriptors": {
+                "margin-top": "<'margin-top'>",
+                "margin-right": "<'margin-right'>",
+                "margin-bottom": "<'margin-bottom'>",
+                "margin-left": "<'margin-left'>",
+                "margin": "<'margin'>"
+            }
+        },
         "scope": {
             "prelude": "[ ( <scope-start> ) ]? [ to ( <scope-end> ) ]?"
         },
