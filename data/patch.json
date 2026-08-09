@@ -670,6 +670,9 @@
         "modern-device-cmyk-syntax": {
             "syntax": "device-cmyk( <cmyk-component>{4} [ / [ <alpha-value> | none ] ]? )"
         },
+        "param()": {
+            "syntax": "param( <dashed-ident> , <declaration-value>? )"
+        },
         "cmyk-component": {
             "syntax": "<number> | <percentage> | none"
         },
