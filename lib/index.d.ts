@@ -2382,6 +2382,20 @@ export class SyntaxReferenceError extends SyntaxError {
 }
 
 /**
+ * Represents an error that occurs when a value cannot be matched because it
+ * contains a function whose result is unknown at match time, such as `var()`
+ * or `env()`. Extends the standard `SyntaxError`.
+ */
+export class UnsupportedMatchingTree extends SyntaxError {
+    name: "UnsupportedMatchingTree";
+
+    /**
+     * A stable code identifying which unsupported function prevented matching.
+     */
+    code: "ERR_LEXER_VAR_MATCH_UNSUPPORTED" | "ERR_LEXER_ENV_MATCH_UNSUPPORTED";
+}
+
+/**
  * Represents the result of a lexer match operation.
  */
 export interface LexerMatchResult {
@@ -2398,7 +2412,7 @@ export interface LexerMatchResult {
     /**
      * An error object if a matching error occurred, or `null` if no error.
      */
-    error: Error | SyntaxMatchError | SyntaxReferenceError | null;
+    error: Error | SyntaxMatchError | SyntaxReferenceError | UnsupportedMatchingTree | null;
 
     /**
      * Retrieves the trace of matching operations for a specific node.

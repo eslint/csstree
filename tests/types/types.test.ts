@@ -112,6 +112,13 @@ const propertyMatch = lexer.matchProperty('color', 'red');
 console.log(propertyMatch.matched?.type);
 console.log(propertyMatch.isType(ast, 'color'));
 
+// Unsupported matching tree errors
+const varMatch = lexer.matchProperty('color', 'var(--foo)');
+if (varMatch.error && 'code' in varMatch.error) {
+    varMatch.error satisfies csstree.UnsupportedMatchingTree;
+    varMatch.error.code satisfies "ERR_LEXER_VAR_MATCH_UNSUPPORTED" | "ERR_LEXER_ENV_MATCH_UNSUPPORTED";
+}
+
 lexer.cssWideKeywords satisfies string[];
 lexer.generic satisfies boolean;
 lexer.units.length satisfies string[];
