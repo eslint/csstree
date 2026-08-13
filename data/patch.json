@@ -635,6 +635,18 @@
             "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#typedef-generic-family",
             "syntax": "<generic-script-specific>| <generic-complete> | <generic-incomplete> | <-non-standard-generic-family>"
         },
+        "font-features-tech": {
+            "syntax": "features-opentype | features-aat | features-graphite"
+        },
+        "font-format": {
+            "syntax": "<string> | collection | embedded-opentype | opentype | svg | truetype | woff | woff2"
+        },
+        "font-tech": {
+            "syntax": "<font-features-tech> | <color-font-tech> | variations | palettes | incremental"
+        },
+        "color-font-tech": {
+            "syntax": "color-COLRv0 | color-COLRv1 | color-SVG | color-sbix | color-CBDT"
+        },
         "generic-script-specific": {
             "syntax": "generic(kai) | generic(fangsong) | generic(nastaliq)"
         },
@@ -927,6 +939,24 @@
         "style-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "( <style-condition> ) | ( <style-feature> ) | <general-enclosed>"
+        },
+        "supports-feature": {
+            "syntax": "<supports-selector-fn> | <supports-font-tech-fn> | <supports-font-format-fn> | <supports-at-rule-fn> | <supports-named-feature-fn> | <supports-env-fn> | <supports-decl>"
+        },
+        "supports-font-tech-fn": {
+            "syntax": "font-tech( <font-tech> )"
+        },
+        "supports-font-format-fn": {
+            "syntax": "font-format( <font-format> )"
+        },
+        "supports-at-rule-fn": {
+            "syntax": "at-rule( <at-keyword-token> )"
+        },
+        "supports-named-feature-fn": {
+            "syntax": "named-feature( <ident> )"
+        },
+        "supports-env-fn": {
+            "syntax": "env( <ident> )"
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"

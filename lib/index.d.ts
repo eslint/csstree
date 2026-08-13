@@ -665,14 +665,14 @@ export interface FeatureFunction extends CssNodeCommon {
     type: "FeatureFunction";
     feature: string;
     kind: string;
-    value: Declaration | Selector;
+    value: Declaration | Identifier | Raw | Selector | StringNode;
 }
 
 export interface FeatureFunctionPlain extends CssNodeCommon {
     type: "FeatureFunction";
     feature: string;
     kind: string;
-    value: DeclarationPlain | SelectorPlain;
+    value: DeclarationPlain | Identifier | Raw | SelectorPlain | StringNode;
 }
 
 export interface FeatureRange extends CssNodeCommon {
