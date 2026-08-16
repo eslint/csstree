@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.1.0](https://github.com/eslint/csstree/compare/css-tree-v4.0.5...css-tree-v4.1.0) (2026-08-16)
+
+
+### Features
+
+* add UnsupportedMatchingTree error for var()/env() matching ([#147](https://github.com/eslint/csstree/issues/147)) ([b4b13f5](https://github.com/eslint/csstree/commit/b4b13f5299c3a5a1cbea47d46e4cf5fc296f0014))
+
+
+### Bug Fixes
+
+* allow page margin properties in `[@page](https://github.com/page)` rules ([#143](https://github.com/eslint/csstree/issues/143)) ([9cb5ec4](https://github.com/eslint/csstree/commit/9cb5ec4f78d500ce67333dae555c7e260b894b94))
+* update mdn-data ([#146](https://github.com/eslint/csstree/issues/146)) ([4a6d09c](https://github.com/eslint/csstree/commit/4a6d09cee6baff6202ef782dd7c5152399a6c50e))
+* update mdn-data ([#149](https://github.com/eslint/csstree/issues/149)) ([6d26a9f](https://github.com/eslint/csstree/commit/6d26a9f467247363ea23ce04a545986ebd612ffc))
+
 ## [4.0.5](https://github.com/eslint/csstree/compare/css-tree-v4.0.4...css-tree-v4.0.5) (2026-07-19)
 
 
