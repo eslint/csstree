@@ -352,7 +352,7 @@ type FeatureFunction = {
     type: "FeatureFunction";
     kind: string;
     feature: string;
-    value: Declaration | Selector;
+    value: Declaration | Selector | Identifier | String | Raw;
 }
 ```
 
