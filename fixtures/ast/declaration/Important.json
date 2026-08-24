@@ -14,9 +14,10 @@
         },
         {
             "source": "property:!ImpoRtant",
+            "generate": "property:!important",
             "ast": {
                 "type": "Declaration",
-                "important": "ImpoRtant",
+                "important": true,
                 "property": "property",
                 "value": {
                     "type": "Value",
@@ -26,9 +27,10 @@
         },
         {
             "source": "property:!IMPORTANT",
+            "generate": "property:!important",
             "ast": {
                 "type": "Declaration",
-                "important": "IMPORTANT",
+                "important": true,
                 "property": "property",
                 "value": {
                     "type": "Value",
