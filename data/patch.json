@@ -14,9 +14,8 @@
                 }
             }
         },
-        "font-features-values": {
-            "comment": "The features values syntax is defined in https://www.w3.org/TR/css-fonts-4/#at-ruledef-font-feature-values",
-            "prelude": "[<string> | <custom-ident>]+",
+        "font-feature-values": {
+            "comment": "The font-display descriptor: https://www.w3.org/TR/css-fonts-4/#descdef-font-feature-values-font-display",
             "descriptors": {
                 "font-display": "auto | block | swap | fallback | optional"
             }
