@@ -580,6 +580,262 @@
             }
         }
     },
+    "@supports with at-rule()": {
+        "source": "@supports at-rule(@scope) {}",
+        "generate": "@supports at-rule(@scope){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "at-rule",
+                                "value": {
+                                    "type": "AtKeyword",
+                                    "name": "scope"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with at-rule() and whitespace": {
+        "source": "@supports at-rule( @scope ) {}",
+        "generate": "@supports at-rule(@scope){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "at-rule",
+                                "value": {
+                                    "type": "AtKeyword",
+                                    "name": "scope"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with font-tech()": {
+        "source": "@supports font-tech(color-COLRv1) {}",
+        "generate": "@supports font-tech(color-COLRv1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "font-tech",
+                                "value": {
+                                    "type": "Identifier",
+                                    "name": "color-COLRv1"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with font-format() and an identifier": {
+        "source": "@supports font-format(opentype) {}",
+        "generate": "@supports font-format(opentype){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "font-format",
+                                "value": {
+                                    "type": "Identifier",
+                                    "name": "opentype"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with font-format() and a string": {
+        "source": "@supports font-format(\"woff2\") {}",
+        "generate": "@supports font-format(\"woff2\"){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "font-format",
+                                "value": {
+                                    "type": "String",
+                                    "value": "woff2"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with named-feature()": {
+        "source": "@supports named-feature(anchor-position-follows-transforms) {}",
+        "generate": "@supports named-feature(anchor-position-follows-transforms){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "named-feature",
+                                "value": {
+                                    "type": "Identifier",
+                                    "name": "anchor-position-follows-transforms"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with env()": {
+        "source": "@supports env(safe-area-inset-top) {}",
+        "generate": "@supports env(safe-area-inset-top){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "env",
+                                "value": {
+                                    "type": "Identifier",
+                                    "name": "safe-area-inset-top"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with at-rule() and a non at-keyword value": {
+        "source": "@supports at-rule(scope) {}",
+        "generate": "@supports at-rule(scope){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "at-rule",
+                                "value": {
+                                    "type": "Raw",
+                                    "value": "scope"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "@supports with no block is not an error": {
         "source": "@supports;",
         "ast": {
@@ -617,6 +873,16 @@
             "source": "@supports flex: 1 {}",
             "offset": "              ^",
             "error": "Semicolon or block is expected"
+        },
+        {
+            "source": "@supports font-format(1px) {}",
+            "offset": "                      ^",
+            "error": "Identifier or string is expected"
+        },
+        {
+            "source": "@supports at-rule(scope) {}",
+            "offset": "                  ^",
+            "error": "At keyword is expected"
         }
     ]
 }

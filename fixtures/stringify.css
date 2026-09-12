@@ -112,6 +112,7 @@ edge\ .c\61ases {
 /* general enclosed */
 @media (foo: 123) and (1) and foo(1) {}
 @supports selector(.a) {}
+@supports at-rule(@scope) {}
 @container (width > 500px) and style(--foo:1) {}
 @layer foo, bar {}
 @starting-style {}

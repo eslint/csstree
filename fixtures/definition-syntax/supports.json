@@ -1,0 +1,63 @@
+{
+    "<supports-selector-fn>": {
+        "valid": [
+            "selector(.example)"
+        ],
+        "invalid": [
+            "selector()",
+            "selector(1)"
+        ]
+    },
+    "<supports-font-tech-fn>": {
+        "valid": [
+            "font-tech(features-opentype)",
+            "font-tech(color-COLRv1)",
+            "font-tech(variations)",
+            "font-tech(palettes)",
+            "font-tech(incremental)",
+            "FONT-TECH(COLOR-COLRV1)"
+        ],
+        "invalid": [
+            "font-tech()",
+            "font-tech(unknown-tech)",
+            "font-tech(\"woff2\")",
+            "font-tech(color-COLRv1, variations)"
+        ]
+    },
+    "<supports-font-format-fn>": {
+        "valid": [
+            "font-format(opentype)",
+            "font-format(woff2)",
+            "font-format(collection)",
+            "font-format(\"woff2\")"
+        ],
+        "invalid": [
+            "font-format()",
+            "font-format(unknown-format)",
+            "font-format(1px)"
+        ]
+    },
+    "<supports-at-rule-fn>": {
+        "valid": [
+            "at-rule(@scope)",
+            "at-rule(@layer)",
+            "at-rule(@-vendor-foo)"
+        ],
+        "invalid": [
+            "at-rule()",
+            "at-rule(scope)",
+            "at-rule(@scope extra)",
+            "at-rule(@scope; prefix: --foo)"
+        ]
+    },
+    "<supports-named-feature-fn>": {
+        "valid": [
+            "named-feature(anchor-position-follows-transforms)"
+        ],
+        "invalid": [
+            "named-feature()",
+            "named-feature(1)",
+            "named-feature(\"foo\")"
+        ]
+    }
+}
