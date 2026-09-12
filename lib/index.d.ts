@@ -547,6 +547,11 @@ export interface AnPlusB extends CssNodeCommon {
     b: string | null;
 }
 
+export interface AtKeyword extends CssNodeCommon {
+    type: "AtKeyword";
+    name: string;
+}
+
 export interface Atrule extends CssNodeCommon {
     type: "Atrule";
     name: string;
@@ -665,14 +670,14 @@ export interface FeatureFunction extends CssNodeCommon {
     type: "FeatureFunction";
     feature: string;
     kind: string;
-    value: Declaration | Identifier | Raw | Selector | StringNode;
+    value: AtKeyword | Declaration | Identifier | Raw | Selector | StringNode;
 }
 
 export interface FeatureFunctionPlain extends CssNodeCommon {
     type: "FeatureFunction";
     feature: string;
     kind: string;
-    value: DeclarationPlain | Identifier | Raw | SelectorPlain | StringNode;
+    value: AtKeyword | DeclarationPlain | Identifier | Raw | SelectorPlain | StringNode;
 }
 
 export interface FeatureRange extends CssNodeCommon {
@@ -892,6 +897,7 @@ export interface WhiteSpace extends CssNodeCommon {
 /* IMPORTANT! If you update this, also update `CssNodePlain` */
 export type CssNode =
     | AnPlusB
+    | AtKeyword
     | Atrule
     | AtrulePrelude
     | AttributeSelector
@@ -943,6 +949,7 @@ export type CssNode =
 /* IMPORTANT! If you update this, also update `CssNode` */
 export type CssNodePlain =
     | AnPlusB
+    | AtKeyword
     | AtrulePlain
     | AtrulePreludePlain
     | AttributeSelector

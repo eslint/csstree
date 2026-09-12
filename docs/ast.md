@@ -13,6 +13,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [children](#children)
 - [Node types](#node-types)
     - [AnPlusB](#anplusb)
+    - [AtKeyword](#atkeyword)
     - [Atrule](#atrule)
     - [AtrulePrelude](#atruleprelude)
     - [AttributeSelector](#attributeselector)
@@ -201,6 +202,15 @@ type AnPlusB = {
 
 `a` or `b` fields may have no value (equals to `null`) but not both at the same time. Parser normalizes `a` value to store a valid integer, i.e. parser will store `-1` for `-n` and `1` for `n`.
 
+### AtKeyword
+
+```ts
+type AtKeyword = {
+    type: "AtKeyword";
+    name: string;
+}
+```
+
 ### Atrule
 
 ```ts
@@ -352,7 +362,7 @@ type FeatureFunction = {
     type: "FeatureFunction";
     kind: string;
     feature: string;
-    value: Declaration | Selector | Identifier | String | Raw;
+    value: Declaration | Selector | Identifier | String | AtKeyword | Raw;
 }
 ```
 

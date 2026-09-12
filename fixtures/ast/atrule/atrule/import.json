@@ -304,6 +304,92 @@
             "block": null
         }
     },
+    "with supports(feature function)": {
+        "source": "@import url(test) supports(font-tech(color-COLRv1));",
+        "generate": "@import url(test)supports(font-tech(color-COLRv1));",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Function",
+                        "name": "supports",
+                        "children": [
+                            {
+                                "type": "Condition",
+                                "kind": "supports",
+                                "children": [
+                                    {
+                                        "type": "FeatureFunction",
+                                        "kind": "supports",
+                                        "feature": "font-tech",
+                                        "value": {
+                                            "type": "Identifier",
+                                            "name": "color-COLRv1"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with supports(parenthesized declaration)": {
+        "source": "@import url(test) supports((foo:1));",
+        "generate": "@import url(test)supports((foo:1));",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Function",
+                        "name": "supports",
+                        "children": [
+                            {
+                                "type": "Condition",
+                                "kind": "supports",
+                                "children": [
+                                    {
+                                        "type": "SupportsDeclaration",
+                                        "declaration": {
+                                            "type": "Declaration",
+                                            "important": false,
+                                            "property": "foo",
+                                            "value": {
+                                                "type": "Value",
+                                                "children": [
+                                                    {
+                                                        "type": "Number",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
     "with bad supports()": [
         {
             "source": "@import url(test) supports();",
