@@ -1,5 +1,24 @@
 # Changelog
 
+## [4.1.0](https://github.com/eslint/csstree/compare/css-tree-v4.0.5...css-tree-v4.1.0) (2026-09-01)
+
+
+### Features
+
+* add `revert-rule` CSS-wide keyword ([#151](https://github.com/eslint/csstree/issues/151)) ([fed2c33](https://github.com/eslint/csstree/commit/fed2c330d440e8f5a1b79dc87a7c7da748e0b398))
+* add UnsupportedMatchingTree error for var()/env() matching ([#147](https://github.com/eslint/csstree/issues/147)) ([b4b13f5](https://github.com/eslint/csstree/commit/b4b13f5299c3a5a1cbea47d46e4cf5fc296f0014))
+
+
+### Bug Fixes
+
+* allow page margin properties in `[@page](https://github.com/page)` rules ([#143](https://github.com/eslint/csstree/issues/143)) ([9cb5ec4](https://github.com/eslint/csstree/commit/9cb5ec4f78d500ce67333dae555c7e260b894b94))
+* correct `[@font-feature-values](https://github.com/font-feature-values)` typo in syntax patch ([#153](https://github.com/eslint/csstree/issues/153)) ([bfd9b08](https://github.com/eslint/csstree/commit/bfd9b08e8fc7ee9ba653d7fc4c773f10cad16cb3))
+* treat `!important` as case-insensitive ([#152](https://github.com/eslint/csstree/issues/152)) ([d062955](https://github.com/eslint/csstree/commit/d0629550dcc3cc327fd0e71a7d6733e972f91451))
+* update mdn-data ([#146](https://github.com/eslint/csstree/issues/146)) ([4a6d09c](https://github.com/eslint/csstree/commit/4a6d09cee6baff6202ef782dd7c5152399a6c50e))
+* update mdn-data ([#149](https://github.com/eslint/csstree/issues/149)) ([6d26a9f](https://github.com/eslint/csstree/commit/6d26a9f467247363ea23ce04a545986ebd612ffc))
+* update mdn-data ([#150](https://github.com/eslint/csstree/issues/150)) ([471a9c7](https://github.com/eslint/csstree/commit/471a9c7519ef9b9fc0d35e0f807a28dffd401c6f))
+* update mdn-data ([#154](https://github.com/eslint/csstree/issues/154)) ([ca24fea](https://github.com/eslint/csstree/commit/ca24feacdedeab31c79da651027f4bd1b1c5e3f4))
+
 ## [4.0.5](https://github.com/eslint/csstree/compare/css-tree-v4.0.4...css-tree-v4.0.5) (2026-07-19)
 
 

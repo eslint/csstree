@@ -1,6 +1,6 @@
 {
   "name": "@eslint/css-tree",
-  "version": "4.0.5",
+  "version": "4.1.0",
   "description": "A tool set for CSS: fast detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
   "license": "MIT",
@@ -107,7 +107,7 @@
     "test:types": "tsc -p tests/types/tsconfig.json"
   },
   "dependencies": {
-    "mdn-data": "2.31.0",
+    "mdn-data": "2.35.0",
     "source-map-js": "^1.2.1"
   },
   "devDependencies": {

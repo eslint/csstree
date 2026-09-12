@@ -499,6 +499,7 @@
             "initial",
             "revert",
             "revert-layer",
+            "revert-rule",
             "unset",
             "default",
             "0"
