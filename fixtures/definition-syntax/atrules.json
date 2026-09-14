@@ -29,5 +29,25 @@
                 ]
             }
         }
+    },
+    "supports": {
+        "prelude": {
+            "valid": [
+                "(display: grid)",
+                "not (display: grid)",
+                "(display: grid) and (not (display: inline-grid))",
+                "selector(.example)",
+                "font-tech(color-COLRv1)",
+                "font-format(opentype)",
+                "font-format(\"woff2\")",
+                "at-rule(@scope)",
+                "named-feature(anchor-position-follows-transforms)"
+            ],
+            "invalid": [
+                "",
+                "1",
+                "display: grid"
+            ]
+        }
     }
 }
