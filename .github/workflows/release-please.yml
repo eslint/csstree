@@ -45,7 +45,7 @@ jobs:
                   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
             - name: Post release announcement
-              run: npx @humanwhocodes/crosspost -t -b -m --discord-webhook --file social-post.txt
+              run: npx @humanwhocodes/crosspost -b -m --discord-webhook --file social-post.txt
               if: ${{ steps.release.outputs.release_created }}
               env:
                   TWITTER_API_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
