@@ -2365,5 +2365,113 @@
                 ]
             }
         }
+    },
+    "nested @scope": {
+        "source": ".test { @scope (.foo) { color: red; .nested { color: blue } } }",
+        "generate": ".test{@scope (.foo){color:red;.nested{color:blue}}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "scope",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "children": [
+                                {
+                                    "type": "Scope",
+                                    "root": {
+                                        "type": "SelectorList",
+                                        "children": [
+                                            {
+                                                "type": "Selector",
+                                                "children": [
+                                                    {
+                                                        "type": "ClassSelector",
+                                                        "name": "foo"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "limit": null
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "red"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Rule",
+                                    "prelude": {
+                                        "type": "SelectorList",
+                                        "children": [
+                                            {
+                                                "type": "Selector",
+                                                "children": [
+                                                    {
+                                                        "type": "ClassSelector",
+                                                        "name": "nested"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "block": {
+                                        "type": "Block",
+                                        "children": [
+                                            {
+                                                "type": "Declaration",
+                                                "important": false,
+                                                "property": "color",
+                                                "value": {
+                                                    "type": "Value",
+                                                    "children": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "blue"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
