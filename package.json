@@ -106,6 +106,10 @@
     "prepublishOnly": "npm run lint-and-test && npm run build-and-test",
     "test:types": "tsc -p tests/types/tsconfig.json"
   },
+  "allowScripts": {
+    "esbuild": false,
+    "fsevents": false
+  },
   "dependencies": {
     "mdn-data": "2.37.2",
     "source-map-js": "^1.2.1"
