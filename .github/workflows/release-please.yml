@@ -10,7 +10,6 @@ jobs:
         permissions:
             contents: read
             id-token: write
-            models: read
         steps:
             - uses: googleapis/release-please-action@v4
               id: release
