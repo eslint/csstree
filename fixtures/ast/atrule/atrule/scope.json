@@ -164,5 +164,177 @@
                 "children": []
             }
         }
+    },
+    "declarations in block": {
+        "source": "@scope (.foo) { border: 1px solid black; }",
+        "generate": "@scope (.foo){border:1px solid black}",
+        "ast": {
+            "type": "Atrule",
+            "name": "scope",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Scope",
+                        "root": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "foo"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "limit": null
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "border",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Dimension",
+                                    "value": "1",
+                                    "unit": "px"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "solid"
+                                },
+                                {
+                                    "type": "Identifier",
+                                    "name": "black"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "declarations and rules in block": {
+        "source": "@scope (.a) to (.b) { color: red; .c { color: green } color: blue }",
+        "generate": "@scope (.a) to (.b){color:red;.c{color:green}color:blue}",
+        "ast": {
+            "type": "Atrule",
+            "name": "scope",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Scope",
+                        "root": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "a"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "limit": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "b"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "green"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "blue"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
