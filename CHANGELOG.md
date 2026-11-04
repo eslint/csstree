@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.3](https://github.com/eslint/csstree/compare/css-tree-v4.1.2...css-tree-v4.1.3) (2026-11-04)
+
+
+### Bug Fixes
+
+* parse `::part()` arguments as identifiers ([#167](https://github.com/eslint/csstree/issues/167)) ([b52285c](https://github.com/eslint/csstree/commit/b52285c3e1e4cc179ae4fa20f917aa0be83265bf))
+
 ## [4.1.2](https://github.com/eslint/csstree/compare/css-tree-v4.1.1...css-tree-v4.1.2) (2026-10-15)
 
 
