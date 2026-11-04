@@ -1,0 +1,101 @@
+{
+    "basic": {
+        "source": "::part(foo)",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "part",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
+    "multiple names": {
+        "source": "::part(foo bar)",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "part",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "foo"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "bar"
+                }
+            ]
+        }
+    },
+    "with spaces and comments": {
+        "source": "::part(  foo /* test */ bar  )",
+        "generate": "::part(foo bar)",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "part",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "foo"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "bar"
+                }
+            ]
+        }
+    },
+    "no argument": {
+        "source": "::part",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "part",
+            "children": null
+        }
+    },
+    "empty argument": {
+        "source": "::part()",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "part",
+            "children": []
+        }
+    },
+    "should be case insensitive": {
+        "source": "::PaRt(foo)",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "PaRt",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": "::part(1)",
+            "offset": "       ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "::part(foo,bar)",
+            "offset": "          ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": "::part(foo 1)",
+            "offset": "           ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": "::part(var(--test))",
+            "offset": "          ^",
+            "error": "Identifier is expected but function found"
+        }
+    ]
+}
