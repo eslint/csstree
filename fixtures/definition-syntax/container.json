@@ -1,0 +1,15 @@
+{
+    "<style-feature>": {
+        "valid": [
+            "--foo",
+            "--foo: bar",
+            "background-color: blue"
+        ],
+        "invalid": [
+            "",
+            "--",
+            "foo",
+            "--foo --bar"
+        ]
+    }
+}

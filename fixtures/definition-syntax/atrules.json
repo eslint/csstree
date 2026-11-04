@@ -30,6 +30,18 @@
             }
         }
     },
+    "container": {
+        "prelude": {
+            "valid": [
+                "style(--foo)",
+                "style( /**/ --foo /**/ )",
+                "STYLE(--foo)",
+                "style(--foo: bar)",
+                "style(background-color: blue)",
+                "card (width > 30em) and style(--foo)"
+            ]
+        }
+    },
     "supports": {
         "prelude": {
             "valid": [
