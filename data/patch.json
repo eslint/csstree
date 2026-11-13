@@ -939,6 +939,9 @@
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "( <style-condition> ) | ( <style-feature> ) | <general-enclosed>"
         },
+        "style-feature": {
+            "syntax": "<declaration> | <custom-property-name>"
+        },
         "supports-feature": {
             "syntax": "<supports-selector-fn> | <supports-font-tech-fn> | <supports-font-format-fn> | <supports-at-rule-fn> | <supports-named-feature-fn> | <supports-env-fn> | <supports-decl>"
         },
