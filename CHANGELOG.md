@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.3](https://github.com/eslint/csstree/compare/css-tree-v4.1.2...css-tree-v4.1.3) (2026-11-13)
+
+
+### Bug Fixes
+
+* boolean container style query parsing ([#172](https://github.com/eslint/csstree/issues/172)) ([931353c](https://github.com/eslint/csstree/commit/931353c2b356fe47f908f2939e71ffcd3e6372d3))
+* parse `::part()` arguments as identifiers ([#167](https://github.com/eslint/csstree/issues/167)) ([b52285c](https://github.com/eslint/csstree/commit/b52285c3e1e4cc179ae4fa20f917aa0be83265bf))
+
 ## [4.1.2](https://github.com/eslint/csstree/compare/css-tree-v4.1.1...css-tree-v4.1.2) (2026-10-15)
 
 
