@@ -1224,8 +1224,8 @@ export class TokenStream {
     /**
      * An internal buffer used for storing token information, including type and offset.
      * The 32-bit integer at each index contains two pieces of information:
-     * - The starting index (inclusive) of the token within the source string is stored in the lower 24 bits of the 32-bit integer.
-     * - The numeric type of the token is stored in the upper 8 bits of the 32-bit integer.
+     * - The ending index (exclusive) of the token within the source string is stored in the lower 27 bits of the 32-bit integer.
+     * - The numeric type of the token is stored in the upper 5 bits of the 32-bit integer.
      */
     readonly offsetAndType: Uint32Array;
 

@@ -6,6 +6,8 @@
 
 Parses CSS into AST.
 
+The source must not exceed 134,217,727 UTF-16 code units; larger inputs throw a `RangeError`.
+
 ```js
 import { parse } from '@eslint/css-tree';
 
