@@ -42,6 +42,8 @@ jobs:
               if: ${{ steps.release.outputs.release_created }}
               env:
                   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NODE_OPTIONS: --import=./scripts/github-api-auth.js
 
             - name: Post release announcement
               run: npx @humanwhocodes/crosspost -b -m --discord-webhook --file social-post.txt
