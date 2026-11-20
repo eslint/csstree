@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.4](https://github.com/eslint/csstree/compare/css-tree-v4.1.3...css-tree-v4.1.4) (2026-11-20)
+
+
+### Bug Fixes
+
+* Reduce allocations when encoding and decoding URLs ([#178](https://github.com/eslint/csstree/issues/178)) ([3c85670](https://github.com/eslint/csstree/commit/3c856705578de626314e1cc7cb4b0ceb6e24e429))
+
 ## [4.1.3](https://github.com/eslint/csstree/compare/css-tree-v4.1.2...css-tree-v4.1.3) (2026-11-17)
 
 
