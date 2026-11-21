@@ -83,6 +83,41 @@
             "block": null
         }
     },
+    "with media and white space before a comma": {
+        "source": "@import 'test' screen , tv;",
+        "generate": "@import \"test\"screen,tv;",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "String",
+                        "value": "test"
+                    },
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": null
+                            },
+                            {
+                                "type": "MediaQuery",
+                                "modifier": null,
+                                "mediaType": "tv",
+                                "condition": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
     "should be case insensetive": {
         "source": "@ImpOrt 'test' all;",
         "generate": "@ImpOrt \"test\"all;",

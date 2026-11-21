@@ -318,6 +318,28 @@
             }
         }
     },
+    "media type with trailing white space and comments": [
+        {
+            "source": "screen ",
+            "generate": "screen",
+            "ast": {
+                "type": "MediaQuery",
+                "modifier": null,
+                "mediaType": "screen",
+                "condition": null
+            }
+        },
+        {
+            "source": "not screen /* comment */ ",
+            "generate": "not screen",
+            "ast": {
+                "type": "MediaQuery",
+                "modifier": "not",
+                "mediaType": "screen",
+                "condition": null
+            }
+        }
+    ],
     "error": [
         {
             "source": "(foo 123)",
