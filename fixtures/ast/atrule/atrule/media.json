@@ -207,6 +207,91 @@
             }
         }
     },
+    "white space and comments before a comma": [
+        {
+            "source": "@media screen , tv {}",
+            "generate": "@media screen,tv{}",
+            "ast": {
+                "type": "Atrule",
+                "name": "media",
+                "prelude": {
+                    "type": "AtrulePrelude",
+                    "children": [
+                        {
+                            "type": "MediaQueryList",
+                            "children": [
+                                {
+                                    "type": "MediaQuery",
+                                    "modifier": null,
+                                    "mediaType": "screen",
+                                    "condition": null
+                                },
+                                {
+                                    "type": "MediaQuery",
+                                    "modifier": null,
+                                    "mediaType": "tv",
+                                    "condition": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "block": {
+                    "type": "Block",
+                    "children": []
+                }
+            }
+        },
+        {
+            "source": "@media only screen /* comment */ , (min-width: 600px) {}",
+            "generate": "@media only screen,(min-width:600px){}",
+            "ast": {
+                "type": "Atrule",
+                "name": "media",
+                "prelude": {
+                    "type": "AtrulePrelude",
+                    "children": [
+                        {
+                            "type": "MediaQueryList",
+                            "children": [
+                                {
+                                    "type": "MediaQuery",
+                                    "modifier": "only",
+                                    "mediaType": "screen",
+                                    "condition": null
+                                },
+                                {
+                                    "type": "MediaQuery",
+                                    "modifier": null,
+                                    "mediaType": null,
+                                    "condition": {
+                                        "type": "Condition",
+                                        "kind": "media",
+                                        "children": [
+                                            {
+                                                "type": "Feature",
+                                                "kind": "media",
+                                                "name": "min-width",
+                                                "value": {
+                                                    "type": "Dimension",
+                                                    "value": "600",
+                                                    "unit": "px"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "block": {
+                    "type": "Block",
+                    "children": []
+                }
+            }
+        }
+    ],
     "should be case insensitive": {
         "source": "@mEdiA screen{}",
         "ast": {
