@@ -111,7 +111,7 @@
     "fsevents": false
   },
   "dependencies": {
-    "mdn-data": "2.37.2",
+    "mdn-data": "2.38.1",
     "source-map-js": "^1.2.1"
   },
   "devDependencies": {
