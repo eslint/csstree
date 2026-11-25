@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.4](https://github.com/eslint/csstree/compare/css-tree-v4.1.3...css-tree-v4.1.4) (2026-11-25)
+
+
+### Bug Fixes
+
+* allow whitespace before a comma in media query lists ([#182](https://github.com/eslint/csstree/issues/182)) ([e814584](https://github.com/eslint/csstree/commit/e814584829e631ebb31adfcb1f4a680564468e7f))
+* Reduce allocations when encoding and decoding URLs ([#178](https://github.com/eslint/csstree/issues/178)) ([3c85670](https://github.com/eslint/csstree/commit/3c856705578de626314e1cc7cb4b0ceb6e24e429))
+* token offset overflow in large stylesheets ([#179](https://github.com/eslint/csstree/issues/179)) ([f2bef2f](https://github.com/eslint/csstree/commit/f2bef2fd973d873dd41a30f46aaf25b1b6a94bcd))
+* update mdn-data ([#183](https://github.com/eslint/csstree/issues/183)) ([85aa572](https://github.com/eslint/csstree/commit/85aa572f3ec4f371cd2f0f47f087b05c04a48a08))
+
 ## [4.1.3](https://github.com/eslint/csstree/compare/css-tree-v4.1.2...css-tree-v4.1.3) (2026-11-17)
 
 
